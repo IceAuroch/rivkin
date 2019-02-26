@@ -1,0 +1,95 @@
+
+section.main_slider_section 
+    background: linear-gradient(360deg, #F9F9F9 0%, rgba(249, 249, 249, 0) 50%)
+    padding-bottom: 100px
+
+.main_slider 
+    margin-top: 30px
+
+.main_slider_item 
+    width: 100%
+     
+
+.slider_item_img
+    margin-top: 50px
+    margin-bottom: 20px
+    img 
+        width: auto
+        max-width: 100% 
+        height: auto
+        max-height: 100% 
+
+.book_mini
+    position: absolute
+    bottom: 40px
+    cursor: pointer 
+    user-select: none
+    img 
+        width: 120px
+        height: auto
+        transition: all 0.2s ease
+    &:after 
+        content: ''
+        display: block
+        position: absolute 
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(255, 255, 255, 0.5)
+    &.next_img
+        right: 0 
+
+
+.main-slider-arrow
+    display: flex
+    align-items: center
+    cursor: pointer
+    user-select: none
+    svg
+        fill: #888
+        transition: all 0.2s ease
+    span 
+        color: #888
+        font-family: $title
+        padding: 0 10px
+        transition: all 0.2s ease
+    &:hover 
+        span 
+            color: #333 
+        svg 
+            fill: #333
+
+.flickity-page-dots 
+    bottom: -20px
+    .dot 
+        height: 5px
+        width: 5px
+        margin: 0 15px 
+        background-color: #888 
+        transition: all 0.2s ease
+        &.is-selected 
+            background-color: $primary
+            width: 40px
+            border-radius: 5px
+
+.slider_price 
+    display: flex
+    align-items: flex-end 
+    font-family: $title 
+    margin-right: 10px
+    span 
+        font-size: 16px
+    p 
+        font-size: 35px
+        line-height: 0.9
+    
+.slider_arows_wrap
+    display: flex
+    justify-content: space-between
+    position: relative
+    z-index: 1  
+
+.about_book_slider_item
+    width: 100%
+    margin: 0 10px

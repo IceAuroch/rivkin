@@ -1,0 +1,52 @@
+header 
+	position: absolute 
+	width: 100%
+	z-index: 2
+
+.nav_logo
+	padding-left: 4rem
+
+.nav_list 
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+	.nav-item
+		margin: 0 50px
+		&:first-child 
+			margin-left: 0
+		.nav-link
+			border-bottom: 3px solid transparent 
+			color: #fff
+			font-size: 24px
+			&:hover 
+				border-color: $primary
+				color: $primary
+				&:after 
+					border-top: 7px solid $primary
+
+.nav_list
+	.dropdown-toggle
+		position: relative
+		&:after 
+			content: ''
+			display: inline-block
+			position: absolute
+			border-left: 6px solid transparent
+			border-right: 6px solid transparent
+			border-top: 7px solid #fff
+			margin: 0
+			top: calc(50% - 3px)
+			right: -20px
+	.dropdown-menu
+		margin-top: 0
+		.dropdown-item 
+			display: flex
+			align-items: center
+			&:before 
+				content: ''
+				height: 5px
+				width: 5px
+				background-color: $secondary
+				border-radius: 50%
+				margin-right: 15px
+			&:hover 
+				&:before 
+					background-color: #fff 

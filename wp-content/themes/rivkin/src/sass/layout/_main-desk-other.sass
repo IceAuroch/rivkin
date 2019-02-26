@@ -1,0 +1,40 @@
+
+
+section.main_desk_other_section
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    padding-top: 330px
+
+.about_book_img
+    position: absolute  
+    left: 0
+    top: 20%
+    width: 60%
+    img 
+        width: auto 
+        max-width: 100% 
+        height: auto 
+
+
+.main_desk_bread
+    position: relative
+    margin-top: 10px
+    &:before 
+        content: ''
+        display: inline-block
+        position: absolute 
+        left: 0
+        top: 0
+        height: 1px
+        width: 60px 
+        background-color: #fff
+    .breadcrumb-item
+        a 
+            font-family: $text 
+            color: #CECECE 
+            font-weight: 400
+            &:hover 
+                color: $primary
+        &:before
+            margin: 0 5px

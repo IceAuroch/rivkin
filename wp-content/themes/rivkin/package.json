@@ -1,0 +1,31 @@
+{
+  "name": "some",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run dev -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "laravel-mix": "^4.0.14",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.17.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.6"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "flickity": "^2.2.0",
+    "flickity-fade": "^1.0.0",
+    "jquery": "^3.3.1",
+    "masonry-layout": "^4.2.2",
+    "popper.js": "^1.14.7",
+    "scrollreveal": "^4.0.5"
+  }
+}

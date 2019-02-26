@@ -1,0 +1,103 @@
+
+.section_title
+    margin-bottom: 30px
+
+.articles_item
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1)
+    transition: all 0.2s ease
+    background-color: #fff
+    position: relative
+    &:after 
+        content: ''
+        display: inline-block
+        height: 4px
+        width: 0
+        bottom: 0
+        position: absolute
+        background: $primary
+        transition: all 0.2s ease
+    &_img 
+        height: auto 
+        max-height: 190px 
+        overflow: hidden 
+        a
+            img 
+                width: 100%
+    &_content 
+        padding: 25px 20px
+        span 
+            margin: 25px 0
+            color: #CECECE 
+            font-size: 10px
+            font-weight: 500 
+        p 
+            font-weight: 300
+            line-height: 25px
+            font-size: 14px
+    &:hover 
+        border-color: $primary
+        &:after 
+            width: 100%
+
+.articles_inside_item
+    padding: 60px 70px
+
+.articles_inside_item_text
+    p 
+        font-size: 14px
+        margin-bottom: 20px
+        text-align: justify
+        img 
+            float: right
+            margin-left: 20px
+            margin-bottom: 20px
+            width: auto 
+            max-width: 100% 
+
+span.articles_inside_item_date
+    display: block    
+    margin: 25px 0
+    color: #CECECE
+    font-size: 10px
+    font-weight: 500
+
+.slider_modal_item
+    width: 100%
+    margin: 0 10px
+    img 
+        width: 100% 
+        height: auto
+
+.modal
+    display: block 
+    visibility: hidden
+
+.modal-open .modal 
+    visibility: visible 
+
+.modal_close
+    position: relative
+    span 
+        position: absolute
+        font-size: 37px
+        color: #fff
+        right: -2px
+        top: -38px
+        line-height: 1
+        transform: rotate(45deg)
+        cursor: pointer 
+        &:hover 
+            color: $primary
+
+
+.modal_arow
+    padding-top: 15px
+    svg 
+        fill: #fff 
+    span 
+        color: #fff
+    &:hover 
+        svg 
+            fill: $primary 
+        span 
+            color: $primary

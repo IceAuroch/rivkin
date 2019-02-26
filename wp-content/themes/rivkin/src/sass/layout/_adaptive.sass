@@ -1,0 +1,944 @@
+/*==============   before adaptive  ==============*/
+
+/*==============   before adaptive  ==============*/
+
+.header_menu_main_btn_wrap
+	display: none
+	vertical-align: middle
+	margin-left: 30px
+
+button.menu_main_btn
+	width: 45px
+	height: 45px
+	position: relative
+
+.menu_btn
+	display: inline-block
+	position: absolute
+	width: 30px
+	height: 2px
+	background: #fff
+	top: 21px
+	left: 4px
+	
+.menu_btn_top
+	top: 10px
+
+.menu_btn_middle
+	transition-delay: 0.3s
+.menu_btn_end
+	top: 32px
+
+.dropdown-toggle::after
+	display: none
+
+button.menu_main_btn[aria-expanded=true]
+	.menu_btn_top
+		animation-name: btn_top
+		animation-duration: 0.5s
+		animation-timing-function: liner
+		animation-fill-mode: forwards
+	.menu_btn_end
+		animation-name: btn_end
+		animation-duration: 0.5s
+		animation-timing-function: liner
+		animation-fill-mode: forwards
+	.menu_btn_middle
+		opacity: 0
+
+button.menu_main_btn[aria-expanded=false]
+	.menu_btn_top
+		animation-name: btn_top_back
+		animation-duration: 0.5s
+		animation-timing-function: liner
+		animation-fill-mode: forwards
+	.menu_btn_end
+		animation-name: btn_end_back
+		animation-duration: 0.5s
+		animation-timing-function: liner
+		animation-fill-mode: forwards
+
+
+
+@keyframes btn_top 
+	0% 
+		top: 10px
+		transform: rotate(0deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 21px
+		transform: rotate(45deg)
+
+@keyframes btn_top_back
+	0% 
+		top: 21px
+		transform: rotate(45deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 10px
+		transform: rotate(0deg)
+
+
+
+
+@keyframes btn_end 
+	0% 
+		top: 32px
+		transform: rotate(0deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 21px
+		transform: rotate(-45deg)
+
+
+@keyframes btn_end_back
+	0% 
+		top: 21px
+		transform: rotate(-45deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 32px
+		transform: rotate(0deg)
+
+
+
+
+@keyframes btn_top 
+	0% 
+		top: 10px
+		transform: rotate(0deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 21px
+		transform: rotate(45deg)
+
+@keyframes btn_top_back
+	0% 
+		top: 21px
+		transform: rotate(45deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 10px
+		transform: rotate(0deg)
+
+
+
+
+@keyframes btn_end 
+	0% 
+		top: 32px
+		transform: rotate(0deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 21px
+		transform: rotate(-45deg)
+
+
+@keyframes btn_end_back
+	0% 
+		top: 21px
+		transform: rotate(-45deg)
+
+	45% 
+		top: 21px
+		transform: rotate(0deg)
+
+	55%
+		top: 21px
+		transform: rotate(0deg)
+
+	100% 
+		top: 32px
+		transform: rotate(0deg)
+
+
+
+
+/*==============   Adaptiv  ==============*/
+
+
+
+@media (min-width: 315px) and (max-width: 395px)
+
+	h1 
+		font-size: 35px
+
+	h2 
+		font-size: 28px
+
+	h3 
+		font-size: 25px
+
+	section
+		margin-bottom: 50px
+
+	header
+		position: fixed
+		top: 0
+		background-color: #131315
+		padding: 15px 0
+		border-bottom: 1px solid $primary
+
+
+	.nav_logo
+		padding-left: 15px
+		img 
+			width: 130px
+			height: auto
+
+	.nav_list
+		border: none
+
+	.nav_list .nav-item
+		margin: 0
+
+	.nav_list .nav-item .nav-link
+		font-size: 18px
+		padding: 10px 15px
+		text-align: center
+
+	.nav_list .dropdown-toggle:after 
+		right: 25%
+		border-width: 5px
+
+	.dropdown-item
+		font-size: 16px
+		padding: 10px 20px
+
+	.main_desk_title p
+		font-size: 16px
+
+	.main_desk_title
+		margin-bottom: 50px
+		text-align: right
+		p 
+			justify-content: flex-end
+
+
+	.sub_title_main
+		padding: 20px
+		margin-left: -15px
+
+	section.main_desk_section
+		height: auto
+		padding-top: 50px
+		margin-top: 75px
+
+
+	.main_slider
+		margin-top: 0
+
+	.book_mini
+		display: none
+
+	.flickity-page-dots
+		display: none
+
+	.main-slider-arrow
+		padding-top: 20px
+
+	section.main_slider_section
+		padding-bottom: 20px
+
+	
+
+	.articles_item
+		margin-bottom: 20px
+
+	.footer_list_wrap
+		display: none
+
+	.footer_menu
+		padding: 20px 0
+
+	.footer_menu_link a
+		display: block
+		font-size: 18px
+		padding: 5px 0
+		text-align: center
+
+	.footer_logo
+		margin-bottom: 10px
+		text-align: center
+
+	.footer_line_dev
+		padding: 20px 0
+
+	.footer_line_dev_item
+		margin-bottom: 5px
+
+
+
+
+	.about_book_img
+		width: 100%
+		top: 5%
+
+	.main_desk_bread:before
+		left: auto 
+		right: 0
+
+	.text_wrap
+		padding-left: 0
+		p 
+			line-height: normal
+			text-align: justify
+
+	.shop_wrap
+		margin-right: 0
+		padding: 20px
+		margin-bottom: 20px
+
+	.radio_btn
+		max-width: 100%
+		padding-right: 0
+
+	.masonty_wrap_item
+		width: 50%
+		border-width: 10px
+
+
+
+	.masonry_articles_item
+		width: 100%
+		padding: 0
+
+	section.margin_section
+		margin-top: 0px
+		
+
+
+
+	section.main_desk_other_section
+		padding-top: 150px
+
+	.articles_item_img
+		max-height: auto
+
+
+	.articles_inside_item
+		padding: 20px
+
+	.articles_inside_item_text p img
+		float: none
+		display: block
+
+@media (min-width: 396px) and (max-width: 575px)
+
+	h1 
+		font-size: 35px
+
+	h2 
+		font-size: 28px
+
+	h3 
+		font-size: 25px
+
+	section
+		margin-bottom: 50px
+
+	header
+		position: fixed
+		top: 0
+		background-color: #131315
+		padding: 15px 0
+		border-bottom: 1px solid $primary
+
+
+	.nav_logo
+		padding-left: 15px
+		img 
+			width: 130px
+			height: auto
+
+	.nav_list
+		border: none
+
+	.nav_list .nav-item
+		margin: 0
+
+	.nav_list .nav-item .nav-link
+		font-size: 18px
+		padding: 10px 15px
+		text-align: center
+
+	.nav_list .dropdown-toggle:after 
+		right: 25%
+		border-width: 5px
+
+	.dropdown-item
+		font-size: 16px
+		padding: 10px 20px
+
+	.main_desk_title p
+		font-size: 16px
+
+	.main_desk_title
+		margin-bottom: 50px
+		text-align: right
+		p 
+			justify-content: flex-end
+
+	.sub_title_main
+		padding: 20px
+		margin-left: -15px
+
+	section.main_desk_section
+		margin-top: 70px
+		height: auto
+		padding-top: 50px
+
+	.slider_item_img
+		text-align: center
+		img 
+			width: 250px
+			height: auto
+
+	.main_slider
+		margin-top: 0
+
+	.book_mini
+		display: none
+
+	.flickity-page-dots
+		display: none
+
+	.main-slider-arrow
+		padding-top: 20px
+
+	section.main_slider_section
+		padding-bottom: 20px
+
+	.articles_item
+		margin-bottom: 20px
+
+	.footer_list_wrap
+		display: none
+
+	.footer_menu
+		padding: 20px 0
+
+	.footer_menu_link a
+		display: block
+		font-size: 18px
+		padding: 5px 0
+		text-align: center
+
+	.footer_logo
+		margin-bottom: 10px
+		text-align: center
+
+	.footer_line_dev
+		padding: 20px 0
+
+	.footer_line_dev_item
+		margin-bottom: 5px
+
+
+
+	.about_book_img
+		width: 100%
+		top: 5%
+
+	.main_desk_bread:before
+		left: auto 
+		right: 0
+
+	.text_wrap
+		padding-left: 0
+		p 
+			line-height: normal
+			text-align: justify
+
+	.shop_wrap
+		margin-right: 0
+		padding: 20px
+		margin-bottom: 20px
+
+	.radio_btn
+		max-width: 100%
+		padding-right: 0
+
+	.masonty_wrap_item
+		width: 50%
+		border-width: 10px
+
+
+
+	.masonry_articles_item
+		width: 100%
+		padding: 0
+
+	section.margin_section
+		margin-top: -100px
+
+
+	.articles_inside_item
+		padding: 20px
+
+	.articles_inside_item_text p img
+		float: none
+		display: block
+
+@media (min-width: 576px) and (max-width: 767px)
+
+
+
+
+	h1 
+		font-size: 40px
+
+	h2 
+		font-size: 30px
+
+	h3 
+		font-size: 28px
+
+	section
+		margin-bottom: 50px
+
+	header
+		position: fixed
+		top: 0
+		background-color: #131315
+		padding: 15px 0
+		border-bottom: 1px solid $primary
+
+
+	.nav_logo
+		padding-left: 15px
+		img 
+			width: 130px
+			height: auto
+
+	.nav_list
+		border: none
+
+	.nav_list .nav-item
+		margin: 0
+
+	.nav_list .nav-item .nav-link
+		font-size: 18px
+		padding: 10px 15px
+		text-align: center
+
+	.nav_list .dropdown-toggle:after 
+		right: 25%
+		border-width: 5px
+
+	.dropdown-item
+		font-size: 16px
+		padding: 10px 20px
+
+	.main_desk_title p
+		font-size: 16px
+
+	.main_desk_title
+		margin-bottom: 50px
+		text-align: right
+		p 
+			justify-content: flex-end
+
+	.sub_title_main
+		padding: 20px 30px
+
+	section.main_desk_section
+		margin-top: 70px
+		height: auto
+		padding-top: 50px
+
+	.slider_item_img
+		text-align: center
+		img 
+			width: 250px
+			height: auto
+
+	.main_slider
+		margin-top: 0
+
+	.book_mini
+		display: none
+
+	.flickity-page-dots
+		display: none
+
+	.main-slider-arrow
+		padding-top: 20px
+
+	section.main_slider_section
+		padding-bottom: 20px
+
+	.articles_item
+		margin-bottom: 20px
+
+	.footer_list_wrap
+		display: none
+
+	.footer_menu
+		padding: 20px 0
+
+	.footer_menu_link a
+		display: block
+		font-size: 18px
+		padding: 5px 0
+		text-align: center
+
+	.footer_logo
+		margin-bottom: 10px
+		text-align: center
+
+	.footer_line_dev
+		padding: 20px 0
+
+	.footer_line_dev_item
+		margin-bottom: 5px
+
+
+
+
+
+
+
+	.shop_wrap
+		padding: 50px 30px
+		margin-bottom: 20px
+		margin-right: 0
+
+	.masonty_wrap_item
+		width: 50%
+		border-width: 10px
+
+
+
+
+
+	.masonry_articles_item
+		width: 50%
+		padding: 0 10px
+
+	section.margin_section
+		margin-top: -100px
+
+
+
+
+	.articles_inside_item
+		padding: 20px
+
+	.articles_inside_item_text p img
+		float: none
+		display: block
+
+@media (min-width: 768px) and (max-width: 991px)
+
+
+
+	h1 
+		font-size: 40px
+
+	h2 
+		font-size: 30px
+
+	h3 
+		font-size: 28px
+
+	section
+		margin-bottom: 50px
+
+	header
+		position: fixed
+		top: 0
+		background-color: #131315
+		padding: 15px 0
+		border-bottom: 1px solid $primary
+
+
+	.nav_logo
+		padding-left: 15px
+		img 
+			width: 130px
+			height: auto
+
+	.nav_list
+		border: none
+
+	.nav_list .nav-item
+		margin: 0
+
+	.nav_list .nav-item .nav-link
+		font-size: 18px
+		padding: 10px 15px
+		text-align: center
+
+	.nav_list .dropdown-toggle:after 
+		right: 25%
+		border-width: 5px
+
+	.dropdown-item
+		font-size: 16px
+		padding: 10px 20px
+
+
+	.main_desk_title
+		text-align: center
+		p 
+			justify-content: center
+
+
+	section.main_desk_section
+		margin-top: 70px
+		height: auto
+		padding-top: 50px
+
+	.slider_item_img
+		text-align: center
+		img 
+			width: 250px
+			height: auto
+
+	.main_slider
+		margin-top: 0
+
+	.book_mini
+		display: none
+
+	.flickity-page-dots
+		display: none
+
+	.main-slider-arrow
+		padding-top: 20px
+
+	section.main_slider_section
+		padding-bottom: 20px
+
+	.articles_item
+		margin-bottom: 20px
+
+	.footer_list_wrap
+		display: none
+
+	.footer_menu
+		padding: 20px 0
+
+	.footer_menu_link a
+		display: block
+		font-size: 18px
+		padding: 5px 0
+		text-align: center
+
+	.footer_logo
+		margin-bottom: 10px
+		text-align: center
+
+	.footer_line_dev
+		padding: 20px 0
+
+	.footer_line_dev_item
+		margin-bottom: 5px
+
+
+
+
+
+
+
+	.masonry_articles_item
+		width: 50%
+		padding: 0 10px
+
+	section.margin_section
+		margin-top: -100px
+
+
+
+	.articles_inside_item
+		padding: 20px
+
+	.articles_inside_item_text p img
+		float: none
+		display: block
+
+@media (min-width: 992px) and (max-width: 1199px)
+
+	
+
+	h1 
+		font-size: 50px
+
+	h2 
+		font-size: 30px
+
+	h3 
+		font-size: 28px
+
+	header
+		position: fixed
+		top: 0
+		background-color: #131315
+		padding: 15px 0
+		border-bottom: 1px solid $primary
+
+
+	.nav_logo
+		img 
+			width: 180px
+			height: auto
+
+	.nav_list
+		border: none
+
+	.nav_list .nav-item
+		margin: 0
+
+	.nav_list .nav-item .nav-link
+		font-size: 18px
+		padding: 10px 15px
+		text-align: center
+
+	.nav_list .dropdown-toggle:after 
+		right: 25%
+		border-width: 5px
+
+	.dropdown-item
+		font-size: 16px
+		padding: 10px 20px
+
+
+
+	section.main_desk_section
+		margin-top: 70px
+		height: auto
+		padding-top: 50px
+
+
+	.book_mini
+		display: none
+
+	section.main_slider_section
+		padding-bottom: 20px
+
+	.articles_item
+		margin-bottom: 20px
+
+	.footer_list_wrap
+		display: none
+
+	.footer_menu
+		padding: 20px 0
+
+	.footer_menu_link a
+		display: block
+		font-size: 18px
+		padding: 5px 0
+		text-align: center
+
+	.footer_logo
+		margin-bottom: 10px
+		text-align: center
+
+	.footer_line_dev
+		padding: 20px 0
+
+	.footer_line_dev_item
+		margin-bottom: 5px
+
+
+
+
+
+	.masonry_articles_item
+		width: 50%
+		padding: 0 10px
+
+
+@media (min-width: 1200px) and (max-width: 1550px)
+
+	h1 
+		font-size: 50px
+
+	h2 
+		font-size: 30px
+
+	h3 
+		font-size: 28px
+
+	.nav_logo
+		img 
+			width: 200px
+			height: auto
+
+
+	.nav_list .nav-item .nav-link
+		font-size: 20px
+		padding: 20px 0
+
+	.navbar-nav .dropdown-menu
+		background-color: #151517
+		padding: 10px 20px
+		border-bottom: 2px solid $primary
+
+
+	.main_desk_title
+		margin-bottom: 30px
+		
+	.about_book_img
+		left: -10%
+		width: 75%
+
+
