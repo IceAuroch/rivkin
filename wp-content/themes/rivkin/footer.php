@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-12 col-lg">
                     <div class="footer_menu_link">
-                        <a href="#">My Books</a>
+                        <span>My Books</span>
                     </div>
                 </div>
                 <div class="col-12 col-lg">

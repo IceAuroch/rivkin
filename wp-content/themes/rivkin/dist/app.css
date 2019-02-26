@@ -10330,11 +10330,11 @@ footer.footer_section {
   border-bottom: 1px solid #546067;
 }
 
-.footer_menu_link a {
+.footer_menu_link a, .footer_menu_link span {
   font-size: 24px;
   color: #fff;
 }
-.footer_menu_link a:hover {
+.footer_menu_link a:hover, .footer_menu_link span:hover {
   color: #F2994A;
 }
 
@@ -11003,7 +11003,7 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
     padding: 20px 0;
   }
 
-  .footer_menu_link a {
+  .footer_menu_link a, .footer_menu_link span {
     display: block;
     font-size: 18px;
     padding: 5px 0;
@@ -11203,7 +11203,7 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
     padding: 20px 0;
   }
 
-  .footer_menu_link a {
+  .footer_menu_link a, .footer_menu_link span {
     display: block;
     font-size: 18px;
     padding: 5px 0;
@@ -11394,7 +11394,7 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
     padding: 20px 0;
   }
 
-  .footer_menu_link a {
+  .footer_menu_link a, .footer_menu_link span {
     display: block;
     font-size: 18px;
     padding: 5px 0;
@@ -11553,7 +11553,7 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
     padding: 20px 0;
   }
 
-  .footer_menu_link a {
+  .footer_menu_link a, .footer_menu_link span {
     display: block;
     font-size: 18px;
     padding: 5px 0;
@@ -11667,7 +11667,7 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
     padding: 20px 0;
   }
 
-  .footer_menu_link a {
+  .footer_menu_link a, .footer_menu_link span {
     display: block;
     font-size: 18px;
     padding: 5px 0;
