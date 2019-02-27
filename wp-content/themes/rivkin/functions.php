@@ -51,7 +51,7 @@ add_action('wp_enqueue_scripts', 'theme_styles');
 // Post types
 
 require_once('post-types/books.php');
-//require_once('post-types/program.php');
+require_once('post-types/reviews.php');
 
 
 function theme_customize_register($wp_customize)

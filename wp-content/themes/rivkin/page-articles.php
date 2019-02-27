@@ -28,7 +28,8 @@ get_header();
     <!--================= articles page section -->
 <?php $articles = new WP_Query([
     'post_type' => 'post',
-    'category_name' => 'articles'
+    'category_name' => 'articles',
+    'posts_per_page' => 4
 ]);
 if ($articles->have_posts()): ?>
 
@@ -60,16 +61,20 @@ if ($articles->have_posts()): ?>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col text-center">
-                    <a href="#" class="btn btn-primary">
-                        <svg width="19" height="19">
-                            <use xlink:href="#pen_icon"></use>
-                        </svg>
-                        More articles
-                    </a>
+            <?php if ($article->max_num_pages > 1) : ?>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="#" class="btn btn-primary">
+                            <svg width="19" height="19">
+                                <use xlink:href="#pen_icon"></use>
+                            </svg>
+                            More articles
+                        </a>
+                    </div>
                 </div>
-            </div>
+             <?php endif; ?>
+
         </div>
     </section>
 

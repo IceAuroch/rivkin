@@ -112,6 +112,8 @@ get_header();
                     </div>
                 </div>
 
+
+
                 <div class="col-lg-5">
                     <div class="title_h4">
                         <h4>Book Reviews</h4>
@@ -122,80 +124,27 @@ get_header();
                         </div>
                     </div>
                     <div class="about_book_slider">
-                        <div class="about_book_slider_item">
-                            <div class="text_wrap">
-                                <p>A Study of the Eastern Sword by Kirill Rivkin and Brian Isaac, attempts for the
-                                    first time to consider evolution of swords in Asia over the course of the last two
-                                    millennia as a whole – from Scythians and Sarmatians, to East Asia and Japan, then
-                                    back to the nomadic routes and the Pontic-Caspian Steppe of Khazars and Cumans, and
-                                    then towards the whole consequent diversity of forms, employed in Persia, Mamluk
-                                    Egypt, Turkey, Russia, Caucasus.
 
-                                    360 pages with 182 illustrations, consisting of hundreds of individual photographs.
-                                    Some items, such as the famed sword of Charlemagne, were published numerous times,
-                                    but never in detail and quality available in this book. Others, such as unique 14th
-                                    century Mongol period examples, were never publicly displayed before, and don’t even
-                                    have known published analogues. From the sword awarded by General Denikin at the
-                                    height of the Russian Civil War, to the one attributed to Albania’s Skanderbeg, or
-                                    European Crusader blades, carried by Mamluk dignitaries, many examples chosen for
-                                    this book are some of the most prominent, artistic, and scientifically important in
-                                    the field.
+                        <?php
+                        $tern = get_post_meta($post->ID, 'book_review', true);
 
-                                    The analysis presented demonstrates a clear continuity in the development of a
-                                    single edged long sword. It shows how this form evolved over time, and provides
-                                    extensive guidance on attribution and dating of swords. Various technical, in
-                                    particular – metallurgical, aspects involved in sword making are also discussed,
-                                    including historical evidence related to the earliest wootz (bulat) making and the
-                                    consequent evolution of this technology. There is also a somewhat controversial
-                                    attempt to identify six distinctive periods in the history of Asian swords (and
-                                    other aspects of material culture), and to relate transitions between them to
-                                    competing forces of globalization and regionalization.
+                        var_dump($tern);
 
-                                    A single copy can not be autographed as it usually ships directly from a warehouse,
-                                    while 3 copies package can be signed by the author. Please specify in the request
-                                    whether you want them signed, but in this case there could be a short delay with
-                                    fulfilling the order. On sale, please use the paypal form below to request your
-                                    copy.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="about_book_slider_item">
-                            <div class="text_wrap">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irurdo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. The book can be
-                                    purchased from: Amazon E-Bay Ken Trotman Books (UK)</p>
+                        $content = get_the_content($tern);
+                        $strings =  wordwrap($content, 800, "<!--break-->");
+                        $chunks = explode("<!--break-->", $strings);
 
-                                <h5>Prof. David Nicolle, The Bulletin of the School of Oriental and African Studies,
-                                    2018</h5>
-                            </div>
-                        </div>
-                        <div class="about_book_slider_item">
-                            <div class="text_wrap">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irurdo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. The book can be
-                                    purchased from: Amazon E-Bay Ken Trotman Books (UK)</p>
+                        foreach ($chunks as $chunk_content) {
+                            echo "<div class=\"about_book_slider_item\">";
+                            echo " <div class=\"text_wrap\">";
+                            echo " <p>";
+                            echo $chunk_content;
+                            echo " </p>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                        ?>
 
-                            </div>
-                        </div>
-                        <div class="about_book_slider_item">
-                            <div class="text_wrap">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                    deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-                                    The book can be purchased from: Amazon E-Bay Ken Trotman Books (UK)</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="slider_arows_wrap">
                         <div class="main-slider-arrow main-slider-arrow-prev">
@@ -215,9 +164,7 @@ get_header();
         </div>
     </section>
 
-
     <!--================= masonry -->
-
 
     <section class="masonry_img_section">
         <div class="container">
