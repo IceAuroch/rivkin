@@ -6,7 +6,7 @@ get_header();
 
 <!--================= main desk -->
 
-<section class="main_desk_other_section" style="background-image: url(images/article_bg.jpg);">
+<section class="main_desk_other_section" style="background-image: url(<?php echo get_theme_file_uri('images/article_bg.jpg'); ?>);">
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-sm-5">
@@ -15,7 +15,7 @@ get_header();
 					<div class="main_desk_bread">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Main</a></li>
+								<li class="breadcrumb-item"><a href="<?php echo site_url(); ?>">Main</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Articles</li>
 							</ol>
 						</nav>
@@ -67,7 +67,7 @@ get_header();
                         <div class="articles_item">
                             <div class="articles_item_img">
                                 <a href="article-inside.html">
-                                    <img src="images/articles/images.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri('images/articles/images.jpg'); ?>"" alt="">
                                 </a>
                             </div>
                             <div class="articles_item_content">
@@ -98,7 +98,7 @@ get_header();
                         <div class="articles_item">
                             <div class="articles_item_img">
                                 <a href="#">
-                                    <img src="images/articles/images.jpg" alt="">
+                                    <img src="<?php echo get_theme_file_uri('images/articles/images.jpg'); ?>"" alt="">
                                 </a>
                             </div>
                             <div class="articles_item_content">
