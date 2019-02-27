@@ -42,30 +42,46 @@
                     <?php $books = new WP_Query([
                         'post_type' => 'book',
                         'orderby' => 'id',
-                        'order'   => 'desc'
+                        'order' => 'desc'
                     ]);
                     if ($books->have_posts()): ?>
-                    <ul class="footer_list">
-                        <?php while ($books->have_posts()) : $books->the_post(); ?>
-                        <li><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a></li>
-                        <?php endwhile; ?>
-                    </ul>
+                        <ul class="footer_list">
+                            <?php while ($books->have_posts()) : $books->the_post(); ?>
+                                <li><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a></li>
+                            <?php endwhile; ?>
+                        </ul>
                     <?php endif;
                     wp_reset_postdata(); ?>
                 </div>
                 <div class="col">
-                    <ul class="footer_list">
-                        <li><a href="#">Nihonto in numbers</a></li>
-                        <li><a href="#">How rare are the Eastern Swords?</a></li>
-                        <li><a href="#">Kiyomaro, modern papers and 100% guarantee</a></li>
-                        <li><a href="#">Cynical things to learn first in Arms and Armor</a></li>
-                    </ul>
+                    <?php $articles = new WP_Query([
+                        'post_type' => 'post',
+                        'category_name' => 'articles',
+                        'posts_per_page' => 4
+                    ]);
+                    if ($articles->have_posts()): ?>
+                        <ul class="footer_list">
+                            <?php while ($articles->have_posts()) : $articles->the_post(); ?>
+                                <li><a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif;
+                    wp_reset_postdata(); ?>
                 </div>
                 <div class="col">
+                    <?php $news = new WP_Query([
+                        'post_type' => 'post',
+                        'category_name' => 'news',
+                        'posts_per_page' => 2
+                    ]);
+                    if ($articles->have_posts()):?>
                     <ul class="footer_list">
-                        <li><a href="#">Nihonto in numbers</a></li>
-                        <li><a href="#">How rare are the Eastern Swords?</a></li>
+                        <?php while ($news->have_posts()) : $news->the_post(); ?>
+                            <li><a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
+                        <?php endwhile; ?>
                     </ul>
+                    <?php endif;
+                    wp_reset_postdata(); ?>
                 </div>
             </div>
         </div>
@@ -111,7 +127,7 @@
     </div>
 </footer>
 
-<?php  wp_footer(); ?>
+<?php wp_footer(); ?>
 
 </body>
 </html>
