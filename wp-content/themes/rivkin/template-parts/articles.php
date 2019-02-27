@@ -25,7 +25,7 @@ if ($articles->have_posts()): ?>
                     <div class="articles_item_content">
                         <h4><?php echo the_title(); ?></h4>
                         <span>Posted on <?php echo get_the_date('jS F  Y'); ?></span>
-                        <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
+                        <p><?php echo wp_trim_words(get_the_content(), 50, '...'); ?></p>
                         <div class="articles_item_link text-right">
                             <a href="<?php echo the_permalink(); ?>">More info</a>
                         </div>
