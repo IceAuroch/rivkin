@@ -61,7 +61,7 @@ if ($articles->have_posts()): ?>
                     </div>
                 </div>
             </div>
-            <?php if ($article->max_num_pages > 1) : ?>
+
 
                 <div class="row">
                     <div class="col text-center">
@@ -73,7 +73,8 @@ if ($articles->have_posts()): ?>
                         </a>
                     </div>
                 </div>
-             <?php endif; ?>
+
+
 
         </div>
     </section>

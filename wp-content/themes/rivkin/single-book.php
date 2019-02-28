@@ -4,11 +4,12 @@ Template Name: Books page
 Template Post Type: book
 */
 get_header();
+$id_bg = get_post_meta($post->ID, 'background_image', true);
 ?>
     <!--================= main desk page other -->
 
     <section class="main_desk_other_section"
-             style="background-image: url(<?php echo get_the_post_thumbnail_url(12, 'large') ?>);">
+             style="background-image: url(<?php echo wp_get_attachment_image_url($id_bg, 'full'); ?>);">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-sm-7 col-md-5">

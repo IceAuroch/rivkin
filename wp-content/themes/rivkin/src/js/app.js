@@ -7,3 +7,4 @@ require('./modules/masonry');
 require('./modules/main');
 
 require('./modules/animate');
+

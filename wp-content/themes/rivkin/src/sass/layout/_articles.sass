@@ -13,6 +13,7 @@
         height: 4px
         width: 0
         bottom: 0
+        left: 0
         position: absolute
         background: $primary
         transition: all 0.2s ease
@@ -43,16 +44,19 @@
     padding: 60px 70px
 
 .articles_inside_item_text
+    display: inline-block
     p 
         font-size: 14px
         margin-bottom: 20px
         text-align: justify
-        img 
-            float: right
-            margin-left: 20px
-            margin-bottom: 20px
-            width: auto 
-            max-width: 100% 
+        //display: inline-block
+    .wp-block-image
+        //display: inline-block
+        //float: right
+        margin-left: 20px
+        margin-bottom: 20px
+        width: auto
+        max-width: 100%
 
 span.articles_inside_item_date
     display: block    

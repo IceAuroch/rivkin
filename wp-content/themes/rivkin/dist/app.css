@@ -10061,7 +10061,7 @@ header {
   margin-right: 15px;
 }
 .nav_list .dropdown-menu .dropdown-item:hover:before {
-  background-color: #fff;
+  background-color: #F2994A;
 }
 
 section.main_desk_section {
@@ -10260,6 +10260,7 @@ section.main_slider_section {
   height: 4px;
   width: 0;
   bottom: 0;
+  left: 0;
   position: absolute;
   background: #F2994A;
   transition: all 0.2s ease;
@@ -10297,13 +10298,15 @@ section.main_slider_section {
   padding: 60px 70px;
 }
 
+.articles_inside_item_text {
+  display: inline-block;
+}
 .articles_inside_item_text p {
   font-size: 14px;
   margin-bottom: 20px;
   text-align: justify;
 }
-.articles_inside_item_text p img {
-  float: right;
+.articles_inside_item_text .wp-block-image {
   margin-left: 20px;
   margin-bottom: 20px;
   width: auto;
@@ -10448,7 +10451,7 @@ section.main_desk_other_section {
   position: absolute;
   left: 0;
   top: 20%;
-  width: 60%;
+  width: 50%;
 }
 .about_book_img img {
   width: auto;
