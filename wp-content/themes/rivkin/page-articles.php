@@ -2,7 +2,6 @@
 get_header();
 ?>
 
-
     <!--================= main desk -->
 
     <section class="main_desk_other_section"
@@ -80,8 +79,5 @@ if ($articles->have_posts()): ?>
     </section>
 
 <?php endif;
-wp_reset_postdata(); ?>
-
-<?php
+wp_reset_postdata();
 get_footer();
-?>
