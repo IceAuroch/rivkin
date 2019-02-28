@@ -59,7 +59,7 @@
                         'category_name' => 'articles',
                         'posts_per_page' => 4
                     ]);
-                    if ($articles->have_posts()): ?>
+                    if ($articles->have_posts()) : ?>
                         <ul class="footer_list">
                             <?php while ($articles->have_posts()) : $articles->the_post(); ?>
                                 <li><a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>

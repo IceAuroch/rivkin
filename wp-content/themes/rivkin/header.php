@@ -43,7 +43,7 @@
                         'post_type' => 'book',
                         'orderby' => 'id'
                     ]);
-                    if ($books->have_posts()): ?>
+                    if ($books->have_posts()) : ?>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php while ($books->have_posts()) : $books->the_post(); ?>

@@ -234,8 +234,6 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
         </div>
     </div>
 
-<?php require('template-parts/articles.php'); ?>
-
-<?php
+<?php require('template-parts/articles.php'); 
 get_footer();
 wp_reset_postdata();
