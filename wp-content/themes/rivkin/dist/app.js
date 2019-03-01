@@ -25381,7 +25381,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var masonry_layout__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(masonry_layout__WEBPACK_IMPORTED_MODULE_0__);
 
 
-if ('.masonry_wrap') {
+if ($('.masonry_wrap').length) {
   var elem_masonry1 = document.querySelector('.masonry_wrap');
   var msnry = new masonry_layout__WEBPACK_IMPORTED_MODULE_0___default.a(elem_masonry1, {
     // options
@@ -25389,7 +25389,7 @@ if ('.masonry_wrap') {
   });
 }
 
-if ('.masonry_articles') {
+if ($('.masonry_articles').length) {
   var elem_masonry2 = document.querySelector('.masonry_articles');
   var msnry = new masonry_layout__WEBPACK_IMPORTED_MODULE_0___default.a(elem_masonry2, {
     // options

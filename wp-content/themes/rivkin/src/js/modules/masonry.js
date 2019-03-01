@@ -1,6 +1,6 @@
 import Masonry from 'masonry-layout';
 
-if ('.masonry_wrap') {
+if($('.masonry_wrap').length) {
   var elem_masonry1 = document.querySelector('.masonry_wrap');
 
   var msnry = new Masonry( elem_masonry1, {
@@ -9,7 +9,7 @@ if ('.masonry_wrap') {
   });
 }
 
-if ('.masonry_articles') {
+if($('.masonry_articles').length) {
   var elem_masonry2 = document.querySelector('.masonry_articles');
 
   var msnry = new Masonry( elem_masonry2, {
