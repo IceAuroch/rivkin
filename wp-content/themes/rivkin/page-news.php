@@ -54,7 +54,7 @@ if ($news->have_posts()): ?>
                             <svg width="19" height="19">
                                 <use xlink:href="#pen_icon"></use>
                             </svg>
-                            More articles
+                            More news
                         </a>
                     </div>
                 </div>

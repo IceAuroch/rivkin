@@ -33,6 +33,7 @@ if ($articles->have_posts()): ?>
 
     <section class="margin_section articles_page_section">
         <div class="container">
+            <?php var_dump($query_vars) ; ?>
 
             <div class="masonry_articles">
                 <?php while ($articles->have_posts()) : $articles->the_post();
