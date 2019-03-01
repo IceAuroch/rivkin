@@ -113,7 +113,17 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                     </div>
                 </div>
 
-
+                <?php
+                $reviews = new WP_Query([
+                    'post_type' => 'review',
+                    'meta_query' => [
+                        [
+                            'key' => 'book_review',
+                            'value' => $post->ID
+                        ]
+                    ]
+                ]);
+                if($reviews ->have_posts()) : ?>
 
                 <div class="col-lg-5">
                     <div class="title_h4">
@@ -126,25 +136,21 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                     </div>
                     <div class="about_book_slider">
 
-                        <?php
-                        $tern = get_post_meta($post->ID, 'book_review', true);
+                            <?php while ($reviews->have_posts()) : $reviews->the_post();
 
-                        var_dump($tern);
+                            $content = get_the_content($reviews->ID);
+                            $chunks = str_split($content, 1850);
 
-                        $content = get_the_content($tern);
-                        $strings =  wordwrap($content, 800, "<!--break-->");
-                        $chunks = explode("<!--break-->", $strings);
-
-                        foreach ($chunks as $chunk_content) {
-                            echo "<div class=\"about_book_slider_item\">";
-                            echo " <div class=\"text_wrap\">";
-                            echo " <p>";
-                            echo $chunk_content;
-                            echo " </p>";
-                            echo "</div>";
-                            echo "</div>";
-                        }
-                        ?>
+                            foreach ($chunks as $chunk_content) {
+                                echo "<div class=\"about_book_slider_item\">";
+                                echo " <div class=\"text_wrap\">";
+                                echo " <p>";
+                                echo $chunk_content;
+                                echo " </p>";
+                                echo "</div>";
+                                echo "</div>";
+                            }
+                            endwhile; ?>
 
                     </div>
                     <div class="slider_arows_wrap">
@@ -160,6 +166,9 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                             </svg>
                         </div>
                     </div>
+
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>
@@ -211,8 +220,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                 if ($images): ?>
                     <div class="slider_modal">
                         <?php foreach ($images as $image): ?>
-                            <div class="slider_modal_item">
-                                <img src="<?php echo $image['sizes']['large']; ?>" alt="">
+                            <div class="slider_modal_item" style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -234,6 +242,6 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
         </div>
     </div>
 
-<?php require('template-parts/articles.php'); 
+<?php require('template-parts/articles.php');
 get_footer();
 wp_reset_postdata();

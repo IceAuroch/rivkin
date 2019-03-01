@@ -9995,8 +9995,8 @@ h2 {
   letter-spacing: 0.05rem;
 }
 
-#otstup {
-  height: 1000px;
+.modal-content {
+  border: none;
 }
 
 header {
@@ -10324,10 +10324,10 @@ span.articles_inside_item_date {
 .slider_modal_item {
   width: 100%;
   margin: 0 10px;
-}
-.slider_modal_item img {
-  width: 100%;
-  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  height: 80vh;
 }
 
 .modal {
@@ -10483,6 +10483,15 @@ section.main_desk_other_section {
 }
 .main_desk_bread .breadcrumb-item:before {
   margin: 0 5px;
+}
+
+.main_desk_grad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(282.84deg, #000000 1.97%, rgba(0, 0, 0, 0.1) 97.54%);
 }
 
 .title_h4 {
@@ -11780,5 +11789,11 @@ button.menu_main_btn[aria-expanded=false] .menu_btn_end {
   .about_book_img {
     left: -10%;
     width: 75%;
+  }
+}
+@media (min-width: 315px) and (max-width: 1150px) {
+  .modal_close span {
+    top: 0;
+    z-index: 999;
   }
 }
