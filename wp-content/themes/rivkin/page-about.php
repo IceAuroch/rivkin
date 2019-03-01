@@ -6,7 +6,6 @@ Template Post Type: page
 get_header();
 ?>
 
-    <!--================= main desk -->
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url($post->id, 'large'); ?>">
@@ -29,7 +28,6 @@ get_header();
         </div>
     </section>
 
-    <!--================= text -->
 
     <section class="text_section" style="background: linear-gradient(360deg, #F9F9F9 0%, rgba(249, 249, 249, 0) 50%);">
         <div class="container">
@@ -48,9 +46,6 @@ get_header();
     </section>
 
 
-    <!--================= Articles -->
-
-    <?php require('template-parts/articles.php');?>
-
 <?php
+require('template-parts/articles.php');
 get_footer();

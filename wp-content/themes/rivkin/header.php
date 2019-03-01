@@ -11,8 +11,6 @@
 </head>
 <body>
 
-<?php get_template_part('template-parts/symbols'); ?>
-
 <header class="header_section">
     <nav class="navbar navbar-expand-xl navigation_wrap align-items-center">
         <a class="navbar-brand nav_logo" href="<?php echo site_url(); ?>">
@@ -46,11 +44,13 @@
                     if ($books->have_posts()) : ?>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                         <?php while ($books->have_posts()) : $books->the_post(); ?>
                         <a class="dropdown-item" href="<?php echo get_permalink(); ?>">
                             <?php echo get_the_title(); ?>
                         </a>
                         <?php endwhile; ?>
+
                     </div>
 
                     <?php endif;

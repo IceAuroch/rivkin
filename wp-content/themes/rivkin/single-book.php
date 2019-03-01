@@ -175,7 +175,10 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
     </section>
 
     <!--================= masonry -->
+<?php
+$images = get_field('book_gallery');
 
+if ($images): ?>
     <section class="masonry_img_section">
         <div class="container">
             <div class="row col">
@@ -187,10 +190,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                 <div class="col">
 
                     <a href="#" data-toggle="modal" data-target="#slider_modal">
-                        <?php
-                        $images = get_field('book_gallery');
 
-                        if ($images): ?>
                             <div class="masonry_wrap mt-4">
                                 <?php foreach ($images as $image): ?>
                                     <div class="masonty_wrap_item anim_article_item1">
@@ -198,7 +198,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                        <?php endif; ?>
+
                     </a>
                 </div>
             </div>
@@ -214,17 +214,14 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                 <div class="modal_close">
                     <span data-dismiss="modal">+</span>
                 </div>
-                <?php
-                $images = get_field('book_gallery');
 
-                if ($images): ?>
                     <div class="slider_modal">
                         <?php foreach ($images as $image): ?>
                             <div class="slider_modal_item" style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
                             </div>
                         <?php endforeach; ?>
                     </div>
-                <?php endif; ?>
+
                 <div class="slider_arows_wrap">
                     <div class="main-slider-arrow modal_arow modal_prev">
                         <svg width="16" height="16">
@@ -241,7 +238,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
             </div>
         </div>
     </div>
-
+<?php endif; ?>
 <?php require('template-parts/articles.php');
 get_footer();
 wp_reset_postdata();

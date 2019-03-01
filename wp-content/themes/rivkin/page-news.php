@@ -2,8 +2,6 @@
 get_header();
 ?>
 
-    <!--================= main desk -->
-
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
         <div class="container">
@@ -25,9 +23,8 @@ get_header();
         </div>
     </section>
 
-    <!--================= news page section -->
+
 <?php $news = new WP_Query([
-    'post_type' => 'post',
     'category_name' => 'news',
     'posts_per_page' => 4
 ]);
@@ -38,39 +35,30 @@ if ($news->have_posts()): ?>
             <div class="row">
                 <div class="col">
                     <div class="masonry_articles">
-                        <?php while ($news->have_posts()) : $news->the_post(); ?>
-                            <div class="masonry_articles_item anim_article_item1">
-                                <div class="articles_item">
-                                    <div class="articles_item_img">
-                                        <a href="<?php echo the_permalink(); ?>">
-                                            <img src="<?php echo get_the_post_thumbnail_url($post->id, 'large'); ?>" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="articles_item_content">
-                                        <h4><?php echo the_title(); ?></h4>
-                                        <span>Posted on <?php echo get_the_date('jS F  Y'); ?></span>
-                                        <p><?php echo wp_trim_words(get_the_content(), 50, '...'); ?></p>
-                                        <div class="articles_item_link text-right">
-                                            <a href="<?php echo the_permalink(); ?>">More info</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
+
+                        <?php while ($news->have_posts()) : $news->the_post();
+
+                            get_template_part('template-parts/article-preview');
+
+                        endwhile; ?>
+
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col text-center">
-                    <a href="#" class="btn btn-primary">
-                        <svg width="19" height="19">
-                            <use xlink:href="#pen_icon"></use>
-                        </svg>
-                        More articles
-                    </a>
+            <?php
+            if ($news->max_num_pages > 1) : ?>
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="#" class="btn btn-primary btn-loadmore">
+                            <svg width="19" height="19">
+                                <use xlink:href="#pen_icon"></use>
+                            </svg>
+                            More articles
+                        </a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
 
         </div>
     </section>

@@ -8,10 +8,13 @@ $post_type = wp_get_post_categories($post->ID);
 ?>
 
     <!--================= main desk -->
-
+<?php if(get_the_post_thumbnail_url($post->ID)):?>
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url($post->ID, 'full'); ?>);">
-
+    <?php else: ?>
+    <section class="main_desk_other_section"
+             style="background-image: url(<?php echo get_theme_file_uri('images/article_inside_page_bg.jpg'); ?>);">
+<?php endif; ?>
         <div class="main_desk_grad"></div>
         <div class="container">
             <div class="row justify-content-end">

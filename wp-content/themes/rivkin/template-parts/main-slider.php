@@ -31,12 +31,12 @@ if ($books->have_posts()): ?>
                             <div class="col-lg-4">
                                 <div class="sub_title">
                                     <h2><?php echo get_the_title(); ?></h2>
-                                    <p><?php echo wp_trim_words(get_the_content(), 50, '...'); ?></p>
+                                    <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="slider_item_img">
-                                    <img src="<?php echo get_the_post_thumbnail_url($post->id, 'large'); ?>" alt="">
+                                    <img src="<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -64,7 +64,7 @@ if ($books->have_posts()): ?>
                         </svg>
                         <span>Previous</span></div>
                     <div class="book_mini prev_img js_prev">
-                        <img src="images/book/book1.png" alt="">
+                        <img src="" alt="">
                     </div>
                 </div>
                 <div class="col ">
@@ -75,7 +75,7 @@ if ($books->have_posts()): ?>
                         </svg>
                     </div>
                     <div class="book_mini next_img js_next">
-                        <img src="images/book/book3.png" alt="">
+                        <img src="" alt="">
                     </div>
                 </div>
             </div>

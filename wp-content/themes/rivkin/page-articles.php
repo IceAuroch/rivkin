@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-    <!--================= main desk -->
+
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
@@ -24,7 +24,7 @@ get_header();
             </div>
         </div>
     </section>
-    <!--================= articles page section -->
+
 <?php $articles = new WP_Query([
     'category_name' => 'articles',
     'posts_per_page' => 4
