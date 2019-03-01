@@ -5,7 +5,7 @@ get_header();
     <!--================= main desk -->
 
     <section class="main_desk_other_section"
-             style="background-image: url(<?php echo get_theme_file_uri('images/article_bg.jpg'); ?>);">
+             style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-sm-5">
