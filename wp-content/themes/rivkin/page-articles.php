@@ -3,7 +3,6 @@ get_header();
 ?>
 
 
-
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
         <div class="container">
@@ -25,15 +24,29 @@ get_header();
         </div>
     </section>
 
-<?php $articles = new WP_Query([
+<?php
+$articles = new WP_Query([
     'category_name' => 'articles',
-    'posts_per_page' => 4
+    'posts_per_page' => 4,
+    'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
 ]);
-if ($articles->have_posts()): ?>
+
+?>
+
+    <script>
+        var misha_loadmore_params = <?php echo json_encode([
+            'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
+            'posts' => json_encode($articles->query_vars), // everything about your loop is here
+            'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
+            'max_page' => $articles->max_num_pages
+        ]); ?>;
+    </script>
+
+<?php if ($articles->have_posts()): ?>
 
     <section class="margin_section articles_page_section">
         <div class="container">
-            <?php var_dump($query_vars) ; ?>
+            <?php var_dump($query_vars); ?>
 
             <div class="masonry_articles">
                 <?php while ($articles->have_posts()) : $articles->the_post();
@@ -47,6 +60,7 @@ if ($articles->have_posts()): ?>
         <?php
 
         if ($articles->max_num_pages > 1) : ?>
+
             <div class="text-center">
                 <a href="#" class="btn btn-primary btn-loadmore">
                     <svg width="19" height="19">

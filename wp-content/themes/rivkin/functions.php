@@ -38,12 +38,6 @@ function theme_scripts()
     wp_deregister_script('jquery-migrate');
     wp_enqueue_script('app', get_theme_file_uri('dist/app.js'), null, '', true);
     wp_enqueue_script('my_loadmore', get_theme_file_uri('dist/loadmore.js'), null, '', true);
-    wp_localize_script('my_loadmore', 'misha_loadmore_params', array(
-        'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-        'posts' => json_encode($wp_query->query_vars), // everything about your loop is here
-        'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
-        'max_page' => $wp_query->max_num_pages
-    ));
 }
 
 add_action('wp_enqueue_scripts', 'theme_scripts');
@@ -96,30 +90,33 @@ add_action('customize_register', 'theme_customize_register');
 // Load More
 
 
-function misha_loadmore_ajax_handler(){
+function misha_loadmore_ajax_handler()
+{
+    $args = json_decode(stripslashes($_POST['query']), true);
+    $posts = [];
+    $q = new WP_Query($args);
 
+    if ($q->have_posts()) :
 
-    $args = json_decode( stripslashes( $_POST['query'] ), true );
-    $args['paged'] = $_POST['page'] + 1;
-    $args['post_status'] = 'publish';
+        while ($q->have_posts()): $q->the_post();
 
-    // it is always better to use WP_Query but not here
-    query_posts( $args );
-
-    if( have_posts() ) :
-
-        // run the loop
-        while( have_posts() ): the_post();
-
-            get_template_part('template-parts/article-preview');
+            array_push($posts, $post);
 
         endwhile;
 
     endif;
-    die;
+
+    return $posts;
 }
-
-
 
 add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler');
 add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler');
+
+function dd($args)
+{
+    echo '<pre>';
+    var_dump($args);
+    echo '</pre>';
+
+    die();
+}
