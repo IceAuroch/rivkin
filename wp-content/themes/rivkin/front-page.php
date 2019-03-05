@@ -3,7 +3,6 @@
 get_header();
 
 $sections = [
-    'symbols',
     'main',
     'main-slider',
     'articles'

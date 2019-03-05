@@ -4,15 +4,11 @@ import Flickity from 'flickity';
 var FlickityFade = require('flickity-fade');
 
 
-
-
 if ($('.main_slider')) {
 
     var elem1 = document.querySelector('.main_slider');
 
-    
     if (elem1) {
-
         const flkty1 = new FlickityFade(elem1, {
             prevNextButtons: false,
             pageDots: true,
@@ -195,8 +191,6 @@ $(document).ready(function(){
     $('.slider_counter_all').text(slider_cont_all);
 
     $('.main_slider_counter_all').text(main_slider_cont_all);
-
-
 });
 
 

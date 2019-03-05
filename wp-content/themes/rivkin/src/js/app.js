@@ -1,10 +1,17 @@
 require('./bootstrap');
 
-require('./modules/slider');
+import Vue from 'vue';
+import Posts from './components/Posts'
 
-require('./modules/masonry');
-
-require('./modules/main');
-
-require('./modules/animate');
-
+new Vue({
+  el: '#app',
+  components: {
+    Posts
+  },
+  mounted() {
+    require('./modules/main');
+    require('./modules/slider');
+    require('./modules/animate');
+    require('./modules/masonry');
+  }
+});

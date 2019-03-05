@@ -6,10 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 
 </head>
 <body>
+
+<?php get_template_part('template-parts/symbols'); ?>
 
 <header class="header_section">
     <nav class="navbar navbar-expand-xl navigation_wrap align-items-center">
@@ -37,24 +39,24 @@
                         My Books
                     </a>
 
-                    <?php $books = new WP_Query([
-                        'post_type' => 'book',
-                        'orderby' => 'id'
-                    ]);
-                    if ($books->have_posts()) : ?>
+					<?php $books = new WP_Query([
+						'post_type' => 'book',
+						'orderby' => 'id',
+					]);
+					if ($books->have_posts()) : ?>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <?php while ($books->have_posts()) : $books->the_post(); ?>
-                        <a class="dropdown-item" href="<?php echo get_permalink(); ?>">
-                            <?php echo get_the_title(); ?>
-                        </a>
-                        <?php endwhile; ?>
+							<?php while ($books->have_posts()) : $books->the_post(); ?>
+                                <a class="dropdown-item" href="<?php echo get_permalink(); ?>">
+									<?php echo get_the_title(); ?>
+                                </a>
+							<?php endwhile; ?>
 
-                    </div>
+                        </div>
 
-                    <?php endif;
-                    wp_reset_postdata(); ?>
+					<?php endif;
+					wp_reset_postdata(); ?>
 
                 </li>
                 <li class="nav-item">
@@ -67,3 +69,5 @@
         </div>
     </nav>
 </header>
+
+<main id="app">

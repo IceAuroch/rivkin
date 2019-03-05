@@ -19,9 +19,9 @@ show_admin_bar(false);
 
 function theme_setup()
 {
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('custom-logo');
+	add_theme_support('title-tag');
+	add_theme_support('post-thumbnails');
+	add_theme_support('custom-logo');
 
 }
 
@@ -31,13 +31,10 @@ add_action('after_setup_theme', 'theme_setup');
 
 function theme_scripts()
 {
-    global $wp_query;
-
-    wp_deregister_script('wp-embed');
-    wp_deregister_script('jquery');
-    wp_deregister_script('jquery-migrate');
-    wp_enqueue_script('app', get_theme_file_uri('dist/app.js'), null, '', true);
-    wp_enqueue_script('my_loadmore', get_theme_file_uri('dist/loadmore.js'), null, '', true);
+	wp_deregister_script('wp-embed');
+	wp_deregister_script('jquery');
+	wp_deregister_script('jquery-migrate');
+	wp_enqueue_script('app', get_theme_file_uri('dist/app.js'), null, '', true);
 }
 
 add_action('wp_enqueue_scripts', 'theme_scripts');
@@ -46,7 +43,7 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 // Enqueue styles
 function theme_styles()
 {
-    wp_enqueue_style('theme-app', get_theme_file_uri('dist/app.css'), null, null);
+	wp_enqueue_style('theme-app', get_theme_file_uri('dist/app.css'), null, null);
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');
@@ -60,63 +57,83 @@ require_once('post-types/reviews.php');
 
 function theme_customize_register($wp_customize)
 {
-    $wp_customize->add_section('contacts', [
-        'title' => 'Social links',
-        'priority' => 30,
-    ]);
-    $wp_customize->add_setting('facebook');
-    $wp_customize->add_control('facebook', [
-        'section' => 'contacts',
-        'label' => 'Facebook',
-        'type' => 'text',
-    ]);
-    $wp_customize->add_setting('youtube');
-    $wp_customize->add_control('youtube', [
-        'section' => 'contacts',
-        'label' => 'YouTube',
-        'type' => 'text',
-    ]);
-    $wp_customize->add_setting('twitter');
-    $wp_customize->add_control('twitter', [
-        'section' => 'contacts',
-        'label' => 'Twitter',
-        'type' => 'text',
-    ]);
+	$wp_customize->add_section('contacts', [
+		'title' => 'Social links',
+		'priority' => 30,
+	]);
+	$wp_customize->add_setting('facebook');
+	$wp_customize->add_control('facebook', [
+		'section' => 'contacts',
+		'label' => 'Facebook',
+		'type' => 'text',
+	]);
+	$wp_customize->add_setting('youtube');
+	$wp_customize->add_control('youtube', [
+		'section' => 'contacts',
+		'label' => 'YouTube',
+		'type' => 'text',
+	]);
+	$wp_customize->add_setting('twitter');
+	$wp_customize->add_control('twitter', [
+		'section' => 'contacts',
+		'label' => 'Twitter',
+		'type' => 'text',
+	]);
 
 }
 
 add_action('customize_register', 'theme_customize_register');
 
-// Load More
-
-
-function misha_loadmore_ajax_handler()
-{
-    $args = json_decode(stripslashes($_POST['query']), true);
-    $posts = [];
-    $q = new WP_Query($args);
-
-    if ($q->have_posts()) :
-
-        while ($q->have_posts()): $q->the_post();
-
-            array_push($posts, $post);
-
-        endwhile;
-
-    endif;
-
-    return $posts;
-}
-
-add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler');
-add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler');
-
 function dd($args)
 {
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
+	echo '<pre>';
+	var_dump($args);
+	echo '</pre>';
 
-    die();
+	die();
+}
+
+
+function get_ajax_posts()
+{
+	$args = [
+		'category_name' => $_POST['category'],
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	];
+
+	// The Query
+	$ajaxposts = new WP_Query($args); // changed to get_posts from wp_query, because `get_posts` returns an array
+
+	echo json_encode([
+		'posts' => format_posts($ajaxposts->posts),
+		'last_page' => $ajaxposts->max_num_pages,
+	]);
+
+	exit;
+}
+
+// Fire AJAX action for both logged in and non-logged in users
+add_action('wp_ajax_get_ajax_posts', 'get_ajax_posts');
+add_action('wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts');
+
+function format_posts($posts)
+{
+	if (!is_array($posts)) {
+		return null;
+	}
+
+	$computed = [];
+
+	foreach ($posts as $post) {
+		array_push($computed, [
+			'title' => $post->post_title,
+			'image' => get_the_post_thumbnail_url($post->ID, 'large'),
+			'posted_at' => get_the_date('jS F  Y', $post->ID),
+			'description' => wp_trim_words($post->post_content, 50, '...'),
+			'permalink' => get_the_permalink($post->ID),
+		]);
+	}
+
+	return $computed;
 }
