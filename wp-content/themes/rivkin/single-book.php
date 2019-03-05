@@ -113,17 +113,17 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                     </div>
                 </div>
 
-                <?php
-                $reviews = new WP_Query([
-                    'post_type' => 'review',
-                    'meta_query' => [
-                        [
-                            'key' => 'book_review',
-                            'value' => $post->ID
-                        ]
-                    ]
-                ]);
-                if($reviews ->have_posts()) : ?>
+				<?php
+				$reviews = new WP_Query([
+					'post_type' => 'review',
+					'meta_query' => [
+						[
+							'key' => 'book_review',
+							'value' => $post->ID,
+						],
+					],
+				]);
+				if ($reviews->have_posts()) : ?>
 
                 <div class="col-lg-5">
                     <div class="title_h4">
@@ -136,21 +136,21 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                     </div>
                     <div class="about_book_slider">
 
-                            <?php while ($reviews->have_posts()) : $reviews->the_post();
+						<?php while ($reviews->have_posts()) : $reviews->the_post();
 
-                            $content = get_the_content($reviews->ID);
-                            $chunks = str_split($content, 1850);
+							$content = get_the_content($reviews->ID);
+							$chunks = str_split($content, 1850);
 
-                            foreach ($chunks as $chunk_content) {
-                                echo "<div class=\"about_book_slider_item\">";
-                                echo " <div class=\"text_wrap\">";
-                                echo " <p>";
-                                echo $chunk_content;
-                                echo " </p>";
-                                echo "</div>";
-                                echo "</div>";
-                            }
-                            endwhile; ?>
+							foreach ($chunks as $chunk_content) {
+								echo "<div class=\"about_book_slider_item\">";
+								echo " <div class=\"text_wrap\">";
+								echo " <p>";
+								echo $chunk_content;
+								echo " </p>";
+								echo "</div>";
+								echo "</div>";
+							}
+						endwhile; ?>
 
                     </div>
                     <div class="slider_arows_wrap">
@@ -167,7 +167,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                         </div>
                     </div>
 
-                    <?php endif; ?>
+					<?php endif; ?>
 
                 </div>
             </div>
@@ -179,34 +179,24 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 $images = get_field('book_gallery');
 
 if ($images): ?>
-    <section class="masonry_img_section">
+    <section class="masonry_img_section mb-0">
         <div class="container">
-            <div class="row col">
-                <div class="title_h4">
-                    <h4>Galery Book’s Illustrations</h4>
-                </div>
+            <div class="title_h4">
+                <h4>Galery Book’s Illustrations</h4>
             </div>
-            <div class="row">
-                <div class="col">
 
-                    <a href="#" data-toggle="modal" data-target="#slider_modal">
-
-                            <div class="masonry_wrap mt-4">
-                                <?php foreach ($images as $image): ?>
-                                    <div class="masonty_wrap_item anim_article_item1">
-                                        <img src="<?php echo $image['sizes']['large']; ?>" alt="">
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-
-                    </a>
+            <a href="#" data-toggle="modal" data-target="#slider_modal" class="d-block">
+                <div class="masonry_wrap mt-4">
+					<?php foreach ($images as $image): ?>
+                        <div class="text-center masonry_wrap_item">
+                            <img src="<?php echo $image['sizes']['large']; ?>" alt="">
+                        </div>
+					<?php endforeach; ?>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-
-    <!--================= Modal -->
     <div class="modal fade" id="slider_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
          aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -215,12 +205,13 @@ if ($images): ?>
                     <span data-dismiss="modal">+</span>
                 </div>
 
-                    <div class="slider_modal">
-                        <?php foreach ($images as $image): ?>
-                            <div class="slider_modal_item" style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                <div class="slider_modal">
+					<?php foreach ($images as $image): ?>
+                        <div class="slider_modal_item"
+                             style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
+                        </div>
+					<?php endforeach; ?>
+                </div>
 
                 <div class="slider_arows_wrap">
                     <div class="main-slider-arrow modal_arow modal_prev">
