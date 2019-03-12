@@ -8,7 +8,7 @@
             </div>
 
             <div class="articles_item_content">
-                <h4>{{ post.post_title }}</h4>
+                <h4>{{ post.title }}</h4>
                 <span>Posted on {{ post.posted_at }}</span>
                 <p v-if="post.description !== ''">{{ post.description }}</p>
                 <div class="articles_item_link text-right">

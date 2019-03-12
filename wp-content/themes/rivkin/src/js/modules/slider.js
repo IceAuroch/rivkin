@@ -3,6 +3,28 @@ import Flickity from 'flickity';
 
 var FlickityFade = require('flickity-fade');
 
+if ($('.main_page_slider')) {
+
+    var elemA = document.querySelector('.main_page_slider');
+
+    if (elemA) {
+        const flkty1 = new FlickityFade(elemA, {
+            prevNextButtons: false,
+            pageDots: true,
+            cellAlign: 'center',
+            contain: true,
+            draggable: false,
+            adaptiveHeight: true,
+            wrapAround: true,
+            fade: true,
+            pauseAutoPlayOnHover: false,
+            autoPlay: 3000
+        });
+
+    }
+
+};
+
 
 if ($('.main_slider')) {
 
@@ -98,7 +120,7 @@ if ($('.main_slider')) {
                 cellAlign: 'center',
                 contain: true,
                 draggable: true,
-                adaptiveHeight: false,
+                adaptiveHeight: true,
                 wrapAround: true,
                 fade: false,
                 initialIndex: 0,

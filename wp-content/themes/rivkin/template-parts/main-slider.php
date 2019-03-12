@@ -3,6 +3,7 @@
     'orderby' => 'id',
     'order' => 'desc'
 ]);
+$count = 0;
 if ($books->have_posts()): ?>
     <section class="main_slider_section">
         <div class="container">
@@ -57,27 +58,35 @@ if ($books->have_posts()): ?>
 
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="main-slider-arrow main-slider-arrow-prev js_prev">
-                        <svg width="16" height="16">
-                            <use xlink:href="#prev_icon"></use>
-                        </svg>
-                        <span>Previous</span></div>
-                    <div class="book_mini prev_img js_prev">
-                        <img src="" alt="">
+
+                <?php while ($books->have_posts()) : $books->the_post();
+                    $count++; ?>
+
+                    <div class="col">
+                        <?php if ($count == 1): ?>
+                            <div class="main-slider-arrow main-slider-arrow-prev js_prev">
+                                <svg width="16" height="16">
+                                    <use xlink:href="#prev_icon"></use>
+                                </svg>
+                                <span>Previous</span></div>
+                            <div class="book_mini prev_img js_prev">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                            </div>
+                        <?php elseif($count == $books->post_count): ?>
+                            <div class="main-slider-arrow main-slider-arrow-next js_next justify-content-end">
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use xlink:href="#next_icon"></use>
+                                </svg>
+                            </div>
+                            <div class="book_mini next_img js_next">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                            </div>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="col ">
-                    <div class="main-slider-arrow main-slider-arrow-next js_next justify-content-end">
-                        <span>Next</span>
-                        <svg width="16" height="16">
-                            <use xlink:href="#next_icon"></use>
-                        </svg>
-                    </div>
-                    <div class="book_mini next_img js_next">
-                        <img src="" alt="">
-                    </div>
-                </div>
+
+                <?php endwhile; ?>
+
             </div>
         </div>
 

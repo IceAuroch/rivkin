@@ -9,9 +9,11 @@ header
 .nav_list 
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3)
 	.nav-item
-		margin: 0 50px
+		margin: 0 auto
 		&:first-child 
 			margin-left: 0
+		&:last-child
+			margin-right: 100px
 		.nav-link
 			border-bottom: 3px solid transparent 
 			color: #fff
@@ -21,8 +23,19 @@ header
 				color: $primary
 				&:after 
 					border-top: 7px solid $primary
+		&.dropdown
+			.nav-link
+				padding-right: 20px
+			&.show
+				.nav-link
+					border-color: $primary
+					color: $primary
+					&:after
+						border-bottom: 7px solid $primary
+						border-top: none
 
 .nav_list
+	width: 90%
 	.dropdown-toggle
 		position: relative
 		&:after 
@@ -33,8 +46,9 @@ header
 			border-right: 6px solid transparent
 			border-top: 7px solid #fff
 			margin: 0
-			top: calc(50% - 3px)
-			right: -20px
+			top: 50%
+			transform: translateY(-50%)
+			right: 0px
 	.dropdown-menu
 		margin-top: 0
 		.dropdown-item 
@@ -50,3 +64,9 @@ header
 			&:hover 
 				&:before 
 					background-color: $primary
+
+
+.navbar-collapse
+	flex-basis: 50%
+	flex-grow: 0
+	width: 50%

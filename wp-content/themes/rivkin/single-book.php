@@ -10,9 +10,9 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo wp_get_attachment_image_url($id_bg, 'full'); ?>);">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-end">
-                <div class="col-sm-7 col-md-5">
+                <div class="col-md-6">
                     <div class="main_desk_title d-flex flex-column">
                         <h1><?php echo get_the_title(); ?></h1>
                         <div class="main_desk_bread">
@@ -38,29 +38,6 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 
 
     <section class="text_section">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-lg-6">
-                    <div class="title_h4">
-                        <h4>About Book</h4>
-                        <span class="line"></span>
-                    </div>
-                    <div class="text_wrap">
-                        <p><?php echo get_the_content(); ?></p>
-                        <a href="<?php echo get_post_meta($post->ID, 'amazon_link', true); ?>">Amazon</a>
-                        <a href="<?php echo get_post_meta($post->ID, 'ebay_link', true); ?>">E-Bay</a>
-                        <a href="<?php echo get_post_meta($post->ID, 'kenbook_link', true); ?>">Ken Trotman Books
-                            (UK)</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!--================= form -->
-
-    <section class="form_section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
@@ -112,6 +89,30 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-5">
+                    <div class="title_h4">
+                        <h4>About Book</h4>
+                        <span class="line"></span>
+                    </div>
+                    <div class="text_wrap">
+                        <p><?php echo get_the_content(); ?></p>
+                        <a href="<?php echo get_post_meta($post->ID, 'amazon_link', true); ?>">Amazon</a>
+                        <a href="<?php echo get_post_meta($post->ID, 'ebay_link', true); ?>">E-Bay</a>
+                        <a href="<?php echo get_post_meta($post->ID, 'kenbook_link', true); ?>">Ken Trotman Books
+                            (UK)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--================= form -->
+
+    <section class="form_section">
+        <div class="container">
+            <div class="row justify-content-center">
+
 
 				<?php
 				$reviews = new WP_Query([
@@ -125,7 +126,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 				]);
 				if ($reviews->have_posts()) : ?>
 
-                <div class="col-lg-5">
+                <div class="col-lg-8">
                     <div class="title_h4">
                         <h4>Book Reviews</h4>
                         <span class="line"></span>
@@ -189,7 +190,7 @@ if ($images): ?>
                 <div class="masonry_wrap mt-4">
 					<?php foreach ($images as $image): ?>
                         <div class="text-center masonry_wrap_item">
-                            <img src="<?php echo $image['sizes']['large']; ?>" alt="">
+                            <img src="<?php echo $image['url']; ?>" alt="">
                         </div>
 					<?php endforeach; ?>
                 </div>

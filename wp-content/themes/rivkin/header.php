@@ -14,7 +14,7 @@
 <?php get_template_part('template-parts/symbols'); ?>
 
 <header class="header_section">
-    <nav class="navbar navbar-expand-xl navigation_wrap align-items-center">
+    <nav class="navbar navbar-expand-xl navigation_wrap align-items-center justify-content-between">
         <a class="navbar-brand nav_logo" href="<?php echo site_url(); ?>">
             <img src="<?php echo get_theme_file_uri('images/logo_header.png'); ?>" alt="">
         </a>
@@ -42,6 +42,7 @@
 					<?php $books = new WP_Query([
 						'post_type' => 'book',
 						'orderby' => 'id',
+                        'order' => 'asc'
 					]);
 					if ($books->have_posts()) : ?>
 

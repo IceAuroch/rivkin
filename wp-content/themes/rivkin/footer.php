@@ -44,7 +44,7 @@
 					<?php $books = new WP_Query([
 						'post_type' => 'book',
 						'orderby' => 'id',
-						'order' => 'desc',
+						'order' => 'asc',
 					]);
 					if ($books->have_posts()): ?>
                         <ul class="footer_list">
@@ -59,7 +59,7 @@
 					<?php $articles = new WP_Query([
 						'post_type' => 'post',
 						'category_name' => 'articles',
-						'posts_per_page' => 4,
+						'posts_per_page' => 3,
 					]);
 					if ($articles->have_posts()) : ?>
                         <ul class="footer_list">
@@ -74,7 +74,7 @@
 					<?php $news = new WP_Query([
 						'post_type' => 'post',
 						'category_name' => 'news',
-						'posts_per_page' => 2,
+						'posts_per_page' => 3,
 					]);
 					if ($articles->have_posts()):?>
                         <ul class="footer_list">

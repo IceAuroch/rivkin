@@ -6,11 +6,17 @@
             </div>
 
             <div class="text-center" v-if="paged">
-                <a href="#" class="btn btn-primary btn-loadmore" @click.prevent="getPosts">
+                <a href="#" class="btn btn-primary btn-loadmore" @click.prevent="getPosts" v-if="this.category === 'articles'">
                     <svg width="19" height="19">
                         <use xlink:href="#pen_icon"></use>
                     </svg>
                     More articles
+                </a>
+                <a href="#" class="btn btn-primary btn-loadmore" @click.prevent="getPosts" v-if="this.category === 'news'">
+                    <svg width="19" height="19">
+                        <use xlink:href="#pen_icon"></use>
+                    </svg>
+                    More news
                 </a>
             </div>
         </div>

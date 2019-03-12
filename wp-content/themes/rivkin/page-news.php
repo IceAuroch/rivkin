@@ -2,9 +2,9 @@
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-end">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="main_desk_title d-flex flex-column">
                         <h1>News</h1>
                         <div class="main_desk_bread">
