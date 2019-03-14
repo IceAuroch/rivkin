@@ -19,8 +19,13 @@ if ($articles->have_posts()): ?>
                 <div class="articles_item">
                     <div class="articles_item_img">
                         <a href="<?php echo the_permalink(); ?>">
+                            <?php if(get_the_post_thumbnail_url($post->ID)):?>
                             <img src="<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>"
                                  alt="">
+                            <?php else: ?>
+                                <img src="<?php echo get_theme_file_uri('images/article_inside_page_bg.jpg'); ?>"
+                                     alt="">
+                            <?php endif; ?>
                         </a>
                     </div>
                     <div class="articles_item_content">

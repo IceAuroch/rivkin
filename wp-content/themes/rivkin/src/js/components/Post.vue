@@ -1,9 +1,9 @@
 <template>
     <div class="masonry_articles_item">
         <div class="articles_item">
-            <div class="articles_item_img" v-if="post.image">
+            <div class="articles_item_img">
                 <a :href="post.permalink">
-                    <img :src="post.image" :alt="post.title">
+                    <img :src="image" :alt="post.title">
                 </a>
             </div>
 
@@ -20,9 +20,14 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      post: Object
+    export default {
+        props: {
+            post: Object
+        },
+        computed: {
+            image() {
+                return this.post.image ? this.post.image : '/wp-content/themes/rivkin/images/article_inside_page_bg.jpg';
+            }
+        }
     }
-  }
 </script>

@@ -45,7 +45,24 @@ if ($('.main_slider')) {
             on: {
                 change: function( index ) {
                     document.getElementById('sliderCounterActive').innerHTML = `${index + 1}`
-                //   console.log( 'Slide changed to' + index );
+
+
+                    var prev_img = $( ".main_slider .is-selected" ).prev().find('.slider_item_img img').attr('src');
+
+                    var next_img = $( ".main_slider .is-selected" ).next().find('.slider_item_img img').attr('src');
+
+
+                    if ( typeof  prev_img == 'undefined') {
+                        var prev_img = $( ".main_slider .main_slider_item:last-child" ).find('.slider_item_img img').attr('src');
+                    }
+
+                    if ( typeof  next_img == 'undefined') {
+                        var next_img = $( ".main_slider .main_slider_item:first-child" ).find('.slider_item_img img').attr('src');
+                    }
+
+                    $('.prev_img img').attr('src', prev_img);
+
+                    $('.next_img img').attr('src', next_img);
                 }
               }
         });
@@ -185,26 +202,6 @@ if ($('.main_slider')) {
 
 $(document).ready(function(){
 
-    $('.js_prev , .js_next').click(function(){
-
-        var prev_img = $( ".main_slider .is-selected" ).prev().find('.slider_item_img img').attr('src');
-
-        var next_img = $( ".main_slider .is-selected" ).next().find('.slider_item_img img').attr('src');
-
-
-        if ( typeof  prev_img == 'undefined') {
-            var prev_img = $( ".main_slider .main_slider_item:last-child" ).find('.slider_item_img img').attr('src');
-        }
-
-        if ( typeof  next_img == 'undefined') {
-            var next_img = $( ".main_slider .main_slider_item:first-child" ).find('.slider_item_img img').attr('src');
-        }
-
-        $('.prev_img img').attr('src', prev_img);
-
-        $('.next_img img').attr('src', next_img);
-
-    });
 
     var slider_cont_all = $(".about_book_slider_item").length;
 

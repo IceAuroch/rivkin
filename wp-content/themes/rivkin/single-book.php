@@ -10,6 +10,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo wp_get_attachment_image_url($id_bg, 'full'); ?>);">
+        <div class="single_book_grad"></div>
         <div class="container-fluid">
             <div class="row justify-content-end">
                 <div class="col-md-6">
@@ -114,17 +115,17 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
             <div class="row justify-content-center">
 
 
-				<?php
-				$reviews = new WP_Query([
-					'post_type' => 'review',
-					'meta_query' => [
-						[
-							'key' => 'book_review',
-							'value' => $post->ID,
-						],
-					],
-				]);
-				if ($reviews->have_posts()) : ?>
+                <?php
+                $reviews = new WP_Query([
+                    'post_type' => 'review',
+                    'meta_query' => [
+                        [
+                            'key' => 'book_review',
+                            'value' => $post->ID,
+                        ],
+                    ],
+                ]);
+                if ($reviews->have_posts()) : ?>
 
                 <div class="col-lg-8">
                     <div class="title_h4">
@@ -137,21 +138,18 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                     </div>
                     <div class="about_book_slider">
 
-						<?php while ($reviews->have_posts()) : $reviews->the_post();
+                        <?php while ($reviews->have_posts()) : $reviews->the_post(); ?>
 
-							$content = get_the_content($reviews->ID);
-							$chunks = str_split($content, 1850);
 
-							foreach ($chunks as $chunk_content) {
-								echo "<div class=\"about_book_slider_item\">";
-								echo " <div class=\"text_wrap\">";
-								echo " <p>";
-								echo $chunk_content;
-								echo " </p>";
-								echo "</div>";
-								echo "</div>";
-							}
-						endwhile; ?>
+                            <div class="about_book_slider_item">
+                                <div class="text_wrap">
+                                    <p>
+                                        <?php echo the_content(); ?>
+                                    </p>
+                                </div>
+                            </div>
+
+                        <?php endwhile; ?>
 
                     </div>
                     <div class="slider_arows_wrap">
@@ -168,7 +166,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                         </div>
                     </div>
 
-					<?php endif; ?>
+                    <?php endif; ?>
 
                 </div>
             </div>
@@ -177,7 +175,7 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
 
     <!--================= masonry -->
 <?php
-$images = get_field('book_gallery');
+$images = get_field('book_gallery', $post_id->ID);
 
 if ($images): ?>
     <section class="masonry_img_section mb-0">
@@ -188,11 +186,11 @@ if ($images): ?>
 
             <a href="#" data-toggle="modal" data-target="#slider_modal" class="d-block">
                 <div class="masonry_wrap mt-4">
-					<?php foreach ($images as $image): ?>
+                    <?php foreach ($images as $image): ?>
                         <div class="text-center masonry_wrap_item">
                             <img src="<?php echo $image['url']; ?>" alt="">
                         </div>
-					<?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             </a>
         </div>
@@ -207,11 +205,11 @@ if ($images): ?>
                 </div>
 
                 <div class="slider_modal">
-					<?php foreach ($images as $image): ?>
+                    <?php foreach ($images as $image): ?>
                         <div class="slider_modal_item"
                              style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
                         </div>
-					<?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="slider_arows_wrap">

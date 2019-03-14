@@ -130,7 +130,7 @@ function format_posts($posts)
 			'title' => $post->post_title,
 			'image' => get_the_post_thumbnail_url($post->ID, 'large'),
 			'posted_at' => get_the_date('jS F  Y', $post->ID),
-			'description' => wp_trim_words($post->post_content, 50, '...'),
+			'description' => wp_trim_words($post->post_content, 30, '...'),
 			'permalink' => get_the_permalink($post->ID),
 		]);
 	}
