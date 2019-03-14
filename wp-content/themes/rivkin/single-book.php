@@ -108,8 +108,6 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
     </section>
 
 
-    <!--================= form -->
-
     <section class="form_section">
         <div class="container">
             <div class="row justify-content-center">
@@ -166,14 +164,15 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
                         </div>
                     </div>
 
-                    <?php endif; ?>
+                    <?php endif;
+                    wp_reset_postdata(); ?>
 
                 </div>
             </div>
         </div>
     </section>
 
-    <!--================= masonry -->
+
 <?php
 $images = get_field('book_gallery', $post_id->ID);
 
