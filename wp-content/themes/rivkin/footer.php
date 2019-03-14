@@ -121,7 +121,7 @@
 
                 <div class="col-md-4 col-lg-4 order-md-2">
                     <div class="footer_line_dev_item d-flex justify-content-end">
-                        <p>Design & web development <a href="#">ImpressionBureau</a> <?php echo date('Y'); ?></p>
+                        <p>Design & web development <a href="https://impressionbureau.pro" target="_blank">ImpressionBureau</a> 2019</p>
                     </div>
                 </div>
             </div>
