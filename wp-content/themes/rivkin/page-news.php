@@ -2,6 +2,7 @@
 
     <section class="main_desk_other_section"
              style="background-image: url(<?php echo get_the_post_thumbnail_url(14, 'full'); ?>);">
+        <div class="main_desk_grad"></div>
         <div class="container-fluid">
             <div class="row justify-content-end">
                 <div class="col-sm-6">
