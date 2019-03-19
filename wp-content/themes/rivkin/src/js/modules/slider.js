@@ -40,8 +40,7 @@ if ($('.main_slider')) {
             adaptiveHeight: true,
             wrapAround: true,
             fade: true,
-            autoPlay: 3000,
-            initialIndex: 1, 
+            initialIndex: 2,
             on: {
                 change: function( index ) {
                     document.getElementById('sliderCounterActive').innerHTML = `${index + 1}`
