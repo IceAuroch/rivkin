@@ -211,5 +211,47 @@ $(document).ready(function(){
     $('.main_slider_counter_all').text(main_slider_cont_all);
 });
 
+if (document.querySelector('.modal_slider_main')) {
+
+    var flktyC = new Flickity('.modal_slider_main', {
+        wrapAround: true,
+        prevNextButtons: false,
+        cellAlign: 'center',
+        draggable: false,
+        pageDots: false,
+        contain: true,
+        initialIndex: 0,
+        on: {
+            change: function( index ) {
+                document.getElementById('sliderCounterActive2').innerHTML = `${index + 1}`
+
+            }
+        }
+    });
 
 
+    var prevArrowReviews = document.querySelector('.modal_prev');
+
+    prevArrowReviews.addEventListener('click', function () {
+        flktyC.previous(true, false);
+    });
+
+    var nextArrowReviews = document.querySelector('.modal_next');
+
+    nextArrowReviews.addEventListener('click', function () {
+        flktyC.next(true, false);
+    });
+
+
+
+
+    var main_slider_cont_all = $(".slider_modal_item").length;
+
+    $('.slider_counter_all2').text(main_slider_cont_all);
+
+
+
+
+
+
+}

@@ -11,7 +11,8 @@ new Vue({
   mounted() {
     require('./modules/main');
     require('./modules/slider');
-    require('./modules/animate');
     require('./modules/masonry');
+    require('./modules/animate');
+    require('./modules/lozad');
   }
 });

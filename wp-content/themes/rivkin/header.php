@@ -64,7 +64,7 @@
                     <a class="nav-link" href="<?php echo get_permalink('14'); ?>">Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo get_permalink('19'); ?>">News</a>
+                    <a class="nav-link" href="<?php echo get_permalink('19'); ?>">Gallery</a>
                 </li>
             </ul>
         </div>

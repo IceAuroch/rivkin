@@ -1,0 +1,83 @@
+
+
+.galery_masonry_item
+    width: 33%
+    padding: 0 10px
+    padding-bottom: 20px
+    img 
+        width: 100%
+        height: auto
+
+
+.slider_modal_item
+    width: 100%
+    margin: 0 10px
+    height: 70vh   
+    &__img  
+        height: 70%
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center center
+    &__text 
+        height: 30%
+        padding-top: 40px
+        p 
+            font-size: 14px
+            color: #fff 
+
+.slider_modal_counter_line
+    position: absolute
+    width: 100%
+    bottom: 27%
+    .slider_title_item
+        p 
+            font-weight: bold
+            font-size: 14px
+            color: #fff
+        #sliderCounterActive2:before
+            background-color: #fff
+
+.modal_slider_main + .slider_arows_wrap
+    .slider_btn 
+        top: 37%
+
+.slider_title
+    display: flex
+    justify-content: space-between
+    margin-bottom: 15px
+
+#sliderCounterActive2
+    position: relative
+    &:before
+        content: ''
+        width: 70px
+        height: 1px
+        position: absolute
+        background-color: #888
+        top: 50%
+        right: calc(100% + 10px)
+
+
+
+
+.modal
+    display: block 
+    visibility: hidden
+
+.modal-open .modal 
+    visibility: visible 
+    background-color: rgba(0, 0, 0, 0.7)
+
+.modal_close
+    position: relative
+    span 
+        position: absolute
+        font-size: 37px
+        color: #fff
+        right: -2px
+        top: -38px
+        line-height: 1
+        transform: rotate(45deg)
+        cursor: pointer 
+        &:hover 
+            color: $primary

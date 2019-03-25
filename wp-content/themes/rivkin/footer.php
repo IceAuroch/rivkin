@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-12 col-lg">
                     <div class="footer_menu_link">
-                        <a href="<?php echo get_permalink('19'); ?>">News</a>
+                        <a href="<?php echo get_permalink('19'); ?>">Gallery</a>
                     </div>
                 </div>
             </div>
@@ -70,21 +70,7 @@
 					<?php endif;
 					wp_reset_postdata(); ?>
                 </div>
-                <div class="col">
-					<?php $news = new WP_Query([
-						'post_type' => 'post',
-						'category_name' => 'news',
-						'posts_per_page' => 3,
-					]);
-					if ($articles->have_posts()):?>
-                        <ul class="footer_list">
-							<?php while ($news->have_posts()) : $news->the_post(); ?>
-                                <li><a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
-							<?php endwhile; ?>
-                        </ul>
-					<?php endif;
-					wp_reset_postdata(); ?>
-                </div>
+                <div class="col"></div>
             </div>
         </div>
     </div>

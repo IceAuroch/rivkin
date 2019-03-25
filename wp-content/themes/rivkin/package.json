@@ -28,6 +28,7 @@
     "masonry-layout": "^4.2.2",
     "popper.js": "^1.14.7",
     "scrollreveal": "^4.0.5",
+    "lozad": "^1.9.0",
     "vue": "^2.6.8"
   }
 }
