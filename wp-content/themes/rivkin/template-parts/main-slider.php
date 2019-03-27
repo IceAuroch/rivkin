@@ -31,13 +31,17 @@ if ($books->have_posts()): ?>
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="sub_title">
-                                    <h2><?php echo get_the_title(); ?></h2>
+                                    <a href="<?= the_permalink(); ?>">
+                                        <h2><?php echo get_the_title(); ?></h2>
+                                    </a>
                                     <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="slider_item_img">
-                                    <img src="<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>" alt="">
+                                    <a href="<?= the_permalink(); ?>">
+                                        <img src="<?php echo get_the_post_thumbnail_url($post->id, 'full'); ?>" alt="">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-lg-4">
