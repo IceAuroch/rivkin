@@ -81,3 +81,49 @@
         cursor: pointer 
         &:hover 
             color: $primary
+
+
+.main_desk_filter
+    margin-top: 30px
+
+    h5
+        font-size: 14px
+        font-weight: bold
+        color: #fff
+        font-family: $text
+        margin-bottom: 20px
+        height: 16px
+
+
+.filter_list
+    list-style: none
+    li
+        input
+            display: none
+
+        label, a
+            color: #DABFB5
+            padding: 5px 0
+            display: flex
+            font-size: 14px
+
+            &:before
+                content: ''
+                width: 18px
+                height: 18px
+                margin-right: 10px
+                background-image: url(../images/icons/check_off.svg)
+                background-size: contain
+                background-repeat: no-repeat
+
+            &:hover
+                color: $primary
+                text-decoration: none
+
+        input:checked + label, a.is-checked
+            color: $primary
+
+            &:before
+                background-image: url(../images/icons/check_on.svg)
+                background-size: contain
+                background-repeat: no-repeat

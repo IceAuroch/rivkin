@@ -138,3 +138,60 @@ function format_posts($posts)
 
 	return $computed;
 }
+
+
+//Filters
+
+function makeFilterLink($query, $current)
+{
+    global $wp;
+    $output = '';
+
+    if (isset($query['filter'])) {
+        $output = '?filter=';
+        $filters = explode(',', $query['filter']);
+
+        if (!in_array($current, $filters)) {
+            array_push($filters, $current);
+        } elseif (($key = array_search($current, $filters)) !== false) {
+            unset($filters[$key]);
+        }
+
+        if (count($filters)) {
+            $output .= implode(',', $filters);
+        } else {
+            $output = '';
+        }
+    } else {
+        $output = '?filter=' . $current;
+    }
+
+    return home_url($wp->request . $output);
+}
+
+/**
+ * @param $query
+ * @param $current
+ * @return bool
+ */
+function checkIfFilterExists($query, $current)
+{
+    if (empty($query['filter'])) {
+        return false;
+    }
+
+    return in_array($current, explode(',', $query['filter']));
+}
+
+/**
+ * @param $image
+ * @return array
+ */
+function getImageTags($image)
+{
+    $tags = explode(',', $image['caption']);
+    $tags = array_map('trim', $tags);
+    $tags = array_map('strtolower', $tags);
+
+    return $tags;
+}
