@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-md-4 col-lg-4">
                     <div class="footer_line_dev_item">
-                        <p>© <?php echo date('Y'); ?> All rights reserved</p>
+                        <p>© <?php echo date('Y'); ?> Kirill Rivkin, All Rights reserved</p>
                     </div>
                 </div>
 

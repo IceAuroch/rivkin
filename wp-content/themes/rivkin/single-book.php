@@ -35,8 +35,71 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
     </section>
 
 
-    <!--================= about book -->
+    <section class="form_section">
+        <div class="container">
+            <div class="row justify-content-center">
 
+
+                <?php
+                $reviews = new WP_Query([
+                    'post_type' => 'review',
+                    'meta_query' => [
+                        [
+                            'key' => 'book_review',
+                            'value' => $post->ID,
+                        ],
+                    ],
+                ]);
+                if ($reviews->have_posts()) : ?>
+
+                <div class="col-lg-8">
+                    <div class="title_h4">
+                        <h4>Book Reviews</h4>
+                        <span class="line"></span>
+                        <div class="slider_counter">
+                            <p><span id="sliderCounterActive" class="slider_counter_active">1</span> / <span
+                                        class="slider_counter_all">4</span></p>
+                        </div>
+                    </div>
+                    <div class="slider_arows_wrap mt-4">
+                        <div class="main-slider-arrow main-slider-arrow-prev">
+                            <svg width="16" height="16">
+                                <use xlink:href="#prev_icon"></use>
+                            </svg>
+                            <span>Previous</span></div>
+                        <div class="main-slider-arrow main-slider-arrow-next justify-content-end">
+                            <span>Next</span>
+                            <svg width="16" height="16">
+                                <use xlink:href="#next_icon"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="about_book_slider">
+
+                        <?php while ($reviews->have_posts()) : $reviews->the_post(); ?>
+
+
+                            <div class="about_book_slider_item">
+                                <div class="text_wrap">
+                                    <p>
+                                        <?php echo the_content(); ?>
+                                    </p>
+                                </div>
+                            </div>
+
+                        <?php endwhile; ?>
+
+                    </div>
+
+                    <?php endif;
+                    wp_reset_postdata(); ?>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================= about book -->
 
     <section class="text_section">
         <div class="container-fluid">
@@ -107,72 +170,6 @@ $id_bg = get_post_meta($post->ID, 'background_image', true);
         </div>
     </section>
 
-
-    <section class="form_section">
-        <div class="container">
-            <div class="row justify-content-center">
-
-
-                <?php
-                $reviews = new WP_Query([
-                    'post_type' => 'review',
-                    'meta_query' => [
-                        [
-                            'key' => 'book_review',
-                            'value' => $post->ID,
-                        ],
-                    ],
-                ]);
-                if ($reviews->have_posts()) : ?>
-
-                <div class="col-lg-8">
-                    <div class="title_h4">
-                        <h4>Book Reviews</h4>
-                        <span class="line"></span>
-                        <div class="slider_counter">
-                            <p><span id="sliderCounterActive" class="slider_counter_active">1</span> / <span
-                                        class="slider_counter_all">4</span></p>
-                        </div>
-                    </div>
-                    <div class="about_book_slider">
-
-                        <?php while ($reviews->have_posts()) : $reviews->the_post(); ?>
-
-
-                            <div class="about_book_slider_item">
-                                <div class="text_wrap">
-                                    <p>
-                                        <?php echo the_content(); ?>
-                                    </p>
-                                </div>
-                            </div>
-
-                        <?php endwhile; ?>
-
-                    </div>
-                    <div class="slider_arows_wrap">
-                        <div class="main-slider-arrow main-slider-arrow-prev">
-                            <svg width="16" height="16">
-                                <use xlink:href="#prev_icon"></use>
-                            </svg>
-                            <span>Previous</span></div>
-                        <div class="main-slider-arrow main-slider-arrow-next justify-content-end">
-                            <span>Next</span>
-                            <svg width="16" height="16">
-                                <use xlink:href="#next_icon"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <?php endif;
-                    wp_reset_postdata(); ?>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 <?php
 $images = get_field('book_gallery', $post_id->ID);
 
@@ -184,10 +181,12 @@ if ($images): ?>
             </div>
 
             <a href="#" data-toggle="modal" data-target="#slider_modal" class="d-block">
-                <div class="masonry_wrap mt-4">
+                <div class="masonry_wrap mt-4 row">
                     <?php foreach ($images as $image): ?>
-                        <div class="text-center masonry_wrap_item">
-                            <img src="<?php echo $image['url']; ?>" alt="">
+                        <div class="text-center col-sm-6 col-lg-4">
+                            <div class="masonry_wrap_item">
+                                <img src="<?php echo $image['url']; ?>" alt="">
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -228,6 +227,6 @@ if ($images): ?>
         </div>
     </div>
 <?php endif; ?>
-<?php require('template-parts/articles.php');
+<?php
 get_footer();
 wp_reset_postdata();

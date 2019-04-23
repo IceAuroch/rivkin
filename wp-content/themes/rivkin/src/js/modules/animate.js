@@ -48,31 +48,31 @@ if ($(window).width() > 1200) {
         mobile: false,
     });
 
-    ScrollReveal().reveal('.anim_article_item1', {
-        origin: 'bottom',
-        delay: 500,
-        distance: '400px',
-        mobile: false,
-    });
-
-    ScrollReveal().reveal('.anim_article_item2', {
-        origin: 'bottom',
-        delay: 600,
-        distance: '400px',
-        mobile: false,
-    });
-    ScrollReveal().reveal('.anim_article_item3', {
-        origin: 'bottom',
-        delay: 700,
-        distance: '400px',
-        mobile: false,
-    });
-    ScrollReveal().reveal('.anim_article_item4', {
-        origin: 'bottom',
-        delay: 800,
-        distance: '400px',
-        mobile: false,
-    });
+    // ScrollReveal().reveal('.anim_article_item1', {
+    //     origin: 'bottom',
+    //     delay: 500,
+    //     distance: '400px',
+    //     mobile: false,
+    // });
+    //
+    // ScrollReveal().reveal('.anim_article_item2', {
+    //     origin: 'bottom',
+    //     delay: 600,
+    //     distance: '400px',
+    //     mobile: false,
+    // });
+    // ScrollReveal().reveal('.anim_article_item3', {
+    //     origin: 'bottom',
+    //     delay: 700,
+    //     distance: '400px',
+    //     mobile: false,
+    // });
+    // ScrollReveal().reveal('.anim_article_item4', {
+    //     origin: 'bottom',
+    //     delay: 800,
+    //     distance: '400px',
+    //     mobile: false,
+    // });
 
     ScrollReveal().reveal('.footer_menu_link', {
         delay: 700,

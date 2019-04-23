@@ -26,15 +26,10 @@ wp_reset_postdata();
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col-sm-7 col-lg-5 ">
-                <div class="main_desk_title d-flex flex-column">
-                    <h1><?php $text = get_post(8); echo $text->post_content; ?></h1>
-                    <p>Kirill A. Rivkin</p>
-                </div>
                 <div class="sub_title sub_title_main">
-                    <h3 >About me</h3>
-                    <?php while($about->have_posts()): $about->the_post(); ?>
-                    <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
-                    <?php endwhile; ?>
+                    <h3>Kirill A. Rivkin</h3>
+                    <h4 >About me</h4>
+                    <p><?= get_field('main_description', 8)  ?></p>
                     <a href="<?php echo get_permalink('10'); ?>">
                         <svg width="16" height="16">
                             <use xlink:href="#samurai_icon"></use>

@@ -1,11 +1,23 @@
 
 
-footer.footer_section 
-    background-image: url(../images/bg_footer.jpg)
+footer.footer_section
+    position: relative
+    background: url(../images/bg_footer.jpg) 50% 70% /cover no-repeat
+
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+
+        background: rgba($dark, .8)
+
 
 .footer_menu
     padding: 40px 70px
-    border-bottom: 1px solid #546067
+    border-bottom: 1px solid #fff
 
 .footer_menu_link
     a, span
