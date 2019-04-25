@@ -229,6 +229,10 @@ if (document.querySelector('.modal_slider_main')) {
         }
     });
 
+    $('[data-indexImg]').on('click', function () {
+        flktyC.select($(this).data('indeximg'));
+    });
+
 
     var prevArrowReviews = document.querySelector('.modal_prev');
 

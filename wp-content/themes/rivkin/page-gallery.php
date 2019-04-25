@@ -81,7 +81,7 @@
 
     <section class="mt_section page_news_section">
         <div class="container-fluid">
-            <?php if ($gallery->have_posts()): $count = 0; ?>
+            <?php if ($gallery->have_posts()): $count = -1; ?>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <a href="#" data-toggle="modal" data-target="#slider_modal">
