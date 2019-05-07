@@ -183,6 +183,11 @@ if ($('.main_slider')) {
             initialIndex: 0
         });
 
+        $('[data-indexImg]').on('click', function () {
+            flkty3.select($(this).data('indeximg'));
+        });
+
+
         var prevArrowReviews = document.querySelector('.modal_prev');
 
         prevArrowReviews.addEventListener('click', function () {
@@ -252,10 +257,5 @@ if (document.querySelector('.modal_slider_main')) {
     var main_slider_cont_all = $(".slider_modal_item").length;
 
     $('.slider_counter_all2').text(main_slider_cont_all);
-
-
-
-
-
 
 }

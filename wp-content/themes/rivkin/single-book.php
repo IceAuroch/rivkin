@@ -182,10 +182,11 @@ if ($images): ?>
 
             <a href="#" data-toggle="modal" data-target="#slider_modal" class="d-block">
                 <div class="masonry_wrap mt-4 row">
-                    <?php foreach ($images as $image): ?>
+                    <?php $count = -1; ?>
+                    <?php foreach ($images as $image): $count++; ?>
                         <div class="text-center col-sm-6 col-lg-4">
                             <div class="masonry_wrap_item">
-                                <img src="<?php echo $image['url']; ?>" alt="">
+                                <img src="<?php echo $image['url']; ?>" alt="" data-indexImg="<?= $count; ?>">
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -203,6 +204,7 @@ if ($images): ?>
                 </div>
 
                 <div class="slider_modal">
+
                     <?php foreach ($images as $image): ?>
                         <div class="slider_modal_item"
                              style="background-image:url(<?php echo $image['sizes']['large']; ?>);">
